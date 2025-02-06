@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages { 
-        stage('Objectifs du Mois de Janvier - Reconstruire l'arrêt de bus dans ma maison') {
+        stage("Objectifs du Mois de Janvier - Reconstruire l'arrêt de bus dans ma maison") {
             parallel {
                 stage("Choisir une pièce de la maison à démolir") {
                         steps {
