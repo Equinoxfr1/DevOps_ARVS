@@ -3,30 +3,30 @@ pipeline {
     stages { 
         stage('Objectifs du Mois de Janvier') {
             parallel {
-                stage('Reconstruire l'arrêt de bus dans ma maison') {
+                stage("Reconstruire l'arrêt de bus dans ma maison") {
                     parallel {
-                        stage('Choisir une pièce de la maison à démolir') {
+                        stage("Choisir une pièce de la maison à démolir") {
                             steps {
                                 echo "Checking de la coque"
                                 sleep 10
                                 echo "Integrite de la coque a 100%"
                             }
                         }
-                        stage('Identifier les lignes de bus à proximité') {
+                        stage("Identifier les lignes de bus à proximité") {
                             steps {
                                 echo "Checking de la coque"
                                 sleep 10
                                 echo "Integrite de la coque a 100%"
                             }
                         }
-                        stage('Promouvoir la construction auprès de ses camarades de classe') {
+                        stage("Promouvoir la construction auprès de ses camarades de classe") {
                             steps {
                                 echo "Checking de la coque"
                                 sleep 10
                                 echo "Integrite de la coque a 100%"
                             }
                         }
-                        stage('Arrêter de faire du covoiturage') {
+                        stage("Arrêter de faire du covoiturage") {
                             steps {
                                 echo "Checking de la coque"
                                 sleep 10
