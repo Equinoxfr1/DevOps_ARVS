@@ -1,11 +1,10 @@
 pipeline {
     agent any
     stages { 
-        stage('Objectifs du Mois de Janvier') {
+        stage('Objectifs du Mois de Janvier - Reconstruire l'arrêt de bus dans ma maison') {
             parallel {
-                stage("Reconstruire l'arrêt de bus dans ma maison") {
-                        stage("Choisir une pièce de la maison à démolir") {
-                            steps {
+                stage("Choisir une pièce de la maison à démolir") {
+                        steps {
                                 echo "Checking de la coque"
                                 sleep 10
                                 echo "Integrite de la coque a 100%"
