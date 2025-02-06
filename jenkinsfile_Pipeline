@@ -4,7 +4,6 @@ pipeline {
         stage('Objectifs du Mois de Janvier') {
             parallel {
                 stage("Reconstruire l'arrêt de bus dans ma maison") {
-                    parallel {
                         stage("Choisir une pièce de la maison à démolir") {
                             steps {
                                 echo "Checking de la coque"
@@ -33,7 +32,6 @@ pipeline {
                                 echo "Integrite de la coque a 100%"
                             }
                         }
-                    }
                 }
                 stage('Verification du niveau de carburant') {
                     steps {
