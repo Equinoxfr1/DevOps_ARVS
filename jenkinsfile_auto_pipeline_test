@@ -5,10 +5,20 @@ pipeline {
         stage('Get Issues') {
             steps {
                 script {
-                    // Récupérer les issues via l'API GitHub avec curl en PowerShell
-                    def response = powershell(script: 'curl -s https://api.github.com/repos/{propriétaire}/{nom_du_projet}/issues', returnStdout: true)
+                    // Définir les variables pour le propriétaire et le nom du projet
+                    def owner = "Equinoxfr1" // Remplace par le nom du propriétaire du repo GitHub
+                    def repo = "DevOps_ARVS" // Remplace par le nom du projet GitHub
                     
-                    // Utiliser PowerShell pour parser le JSON et obtenir les titres des issues
+                    // Construire l'URL complète
+                    def url = "https://api.github.com/repos/Equinoxfr1/DevOps_ARVS/issues"
+                    
+                    // Utiliser Invoke-WebRequest pour récupérer les issues en PowerShell
+                    def response = powershell(script: """
+                        \$response = Invoke-WebRequest -Uri '${url}'
+                        \$response.Content
+                    """, returnStdout: true)
+
+                    // Traiter le JSON retourné
                     def issues = readJSON text: response
                     def issueTitles = issues.collect { it.title }
 
