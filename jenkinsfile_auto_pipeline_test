@@ -5,18 +5,19 @@ pipeline {
         stage('Get Issues') {
             steps {
                 script {
-                    // Récupérer les issues via l'API GitHub
-                    def response = sh(script: 'curl -s https://api.github.com/repos/Equinoxfr1/DevOps_ARVS/issues', returnStdout: true)
+                    // Récupérer les issues via l'API GitHub avec curl en PowerShell
+                    def response = powershell(script: 'curl -s https://api.github.com/repos/{propriétaire}/{nom_du_projet}/issues', returnStdout: true)
                     
-                    // Utiliser jq pour extraire les titres des issues
-                    def issues = sh(script: "echo '${response}' | jq -r '.[] | .title'", returnStdout: true).split('\n')
-                    
+                    // Utiliser PowerShell pour parser le JSON et obtenir les titres des issues
+                    def issues = readJSON text: response
+                    def issueTitles = issues.collect { it.title }
+
                     // Créer un stage pour chaque issue
-                    issues.each { issue ->
+                    issueTitles.each { issue ->
                         stage("Issue: ${issue}") {
                             steps {
                                 echo "Handling issue: ${issue}"
-                                // Ajouter ici ce que tu veux faire pour chaque issue, par exemple une tâche de test ou d'intégration
+                                // Ajouter ici les actions pour chaque issue
                             }
                         }
                     }
