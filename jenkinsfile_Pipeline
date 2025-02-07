@@ -70,5 +70,135 @@
                      }
                 }
             }
+
+            stage("Objectifs du Mois de Février - Obtenir le CCNA à 97%") {
+                parallel {
+                    stage("Ajouter une adresse IP sur le switch") {
+                        steps {
+                            echo "Checking de la coque"
+                            sleep 10
+                            echo "Integrite de la coque a 100%"
+                        }
+                    }
+                    stage("Oublier sa clé USB") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                     stage("Changer l'adresse MAC du routeur") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                     stage("Se garer sur le terre-plein") {
+                         steps {
+                             echo "Checking de la coque"
+                             sleep 10
+                             echo "Integrite de la coque a 100%"
+                         }
+                     }
+                     stage("Aller chercher sa sœur à la maternelle tous les lundis") {
+                         steps {
+                             echo "Checking de la coque"
+                             sleep 10
+                             echo "Integrite de la coque a 100%"
+                         }
+                     }
+                }
+            }
+
+            stage("Objectifs du Mois de Mars - Reconstruire le lit de Martin") {
+                parallel {
+                    stage("Vérifier l'état du lit") {
+                        steps {
+                            echo "Checking de la coque"
+                            sleep 10
+                            echo "Integrite de la coque a 100%"
+                        }
+                    }
+                    stage("Remplacer les lattes du lit") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                     stage("Consolider les embouts de lattes") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                     stage("Mettre un matelas plus léger sur le lit") {
+                         steps {
+                             echo "Checking de la coque"
+                             sleep 10
+                             echo "Integrite de la coque a 100%"
+                         }
+                     }
+                }
+            }
+
+            stage("Objectifs du Mois d'Avril - Rendre le compte-rendu du TP CCourbe") {
+                parallel {
+                    stage("Installer le framework Qt sur son poste") {
+                        steps {
+                            echo "Checking de la coque"
+                            sleep 10
+                            echo "Integrite de la coque a 100%"
+                        }
+                    }
+                    stage("Suivre les étapes du TP CCourbes") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                     stage("Rédiger le compte-rendu sur un document Libre Office Writer") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                     stage("Corriger les fautes d'orthographe avec Antidote") {
+                         steps {
+                             echo "Checking de la coque"
+                             sleep 10
+                             echo "Integrite de la coque a 100%"
+                         }
+                     }
+                     stage("Utiliser ChatGPT 2.0 pour s'aider dans la rédaction") {
+                         steps {
+                             echo "Checking de la coque"
+                             sleep 10
+                             echo "Integrite de la coque a 100%"
+                         }
+                     }
+                     stage("Travailler en groupe de 3 personnes") {
+                         steps {
+                             echo "Checking de la coque"
+                             sleep 10
+                             echo "Integrite de la coque a 100%"
+                         }
+                     }
+                     stage("Respecter la deadline de une semaine après la fin du module") {
+                         steps {
+                             echo "Checking de la coque"
+                             sleep 10
+                             echo "Integrite de la coque a 100%"
+                         }
+                     }
+                }
+            }
+
+
+
         }
     }
