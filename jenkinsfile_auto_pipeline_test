@@ -1,41 +1,16 @@
 pipeline {
     agent any
-    
     stages {
         stage('Get Issues') {
             steps {
                 script {
-                    // Définir les variables pour le propriétaire et le nom du projet
-                    def owner = "Equinoxfr1" // Remplace par le nom du propriétaire du repo GitHub
-                    def repo = "DevOps_ARVS" // Remplace par le nom du projet GitHub
-                    
-                    // Construire l'URL complète
-                    def url = "https://api.github.com/repos/${owner}/${repo}/issues"
-                    
-                    // Utiliser Invoke-WebRequest pour récupérer les issues en PowerShell
-                    def response = powershell(script: """
-                        \$response = Invoke-WebRequest -Uri '${url}'
-                        \$responseContent = \$response.Content
-                        \$json = \$responseContent | ConvertFrom-Json
-                        \$json | ForEach-Object { \$_title }
-                    """, returnStdout: true).trim()
-
-                    // Split des titres d'issues
-                    def issueTitles = response.split("\n")
-                    
-                    // Création des stages dynamiques pour chaque issue
-                    def parallelStages = [:]
-
-                    issueTitles.each { issue ->
-                        // Utilisation de `parallel` pour créer un stage pour chaque issue
-                        parallelStages["Handle issue: ${issue}"] = {
-                            echo "Handling issue: ${issue}"
-                            // Ajouter ici les actions à effectuer pour chaque issue, par exemple des étapes supplémentaires
+                    def response = httpRequest url: 'https://api.github.com/repos/Equinoxfr1/DevOps_ARVS/issues'
+                    def issues = readJSON text: response.content
+                    issues.each { issue ->
+                        stage("Issue: ${issue.title}") {
+                            echo "Processing issue: ${issue.title}"
                         }
                     }
-
-                    // Exécution parallèle des stages créés
-                    parallel parallelStages
                 }
             }
         }
