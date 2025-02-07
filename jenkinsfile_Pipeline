@@ -151,16 +151,18 @@ pipeline {
                 }
             }
         }
-    }
-    stages {
-        stage('Affichage des paramètres') {
-            steps {
-                script {
-                    echo "Nom : ${params.Nom}"
-                    echo "Prénom : ${params.Prénom}"
-                    echo "Date de naissance : ${params.'Jour de naissance'}/${params.'Mois de naissance'}/${params.'Année de naissance'}"
-                    echo "Jour actuel : ${params.'Jour'}"
-                    echo "Mois actuel : ${params.'Mois'}"
+        stage('Afficher Paramètres') {
+            parallel {
+                stage('Affichage des paramètres') {
+                    steps {
+                        script {
+                            echo "Nom : ${params.Nom}"
+                            echo "Prénom : ${params.Prénom}"
+                            echo "Date de naissance : ${params.'Jour de naissance'}/${params.'Mois de naissance'}/${params.'Année de naissance'}"
+                            echo "Jour actuel : ${params.'Jour'}"
+                            echo "Mois actuel : ${params.'Mois'}"
+                        }
+                    }
                 }
             }
         }
