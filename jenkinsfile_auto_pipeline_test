@@ -17,7 +17,13 @@ pipeline {
                             stage(sanitizedStageName) {
                                 steps {
                                     script {
-                                        echo "Processing issue #${issue.number}: ${issue.title}"
+                                        try {
+                                            echo "Processing issue #${issue.number}: ${issue.title}"
+                                            // Ajoute ici les actions spécifiques à traiter pour chaque issue
+                                        } catch (e) {
+                                            echo "Error processing issue #${issue.number}: ${e.message}"
+                                            throw e // Permet de signaler l'erreur pour le debug
+                                        }
                                     }
                                 }
                             }
