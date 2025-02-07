@@ -23,11 +23,8 @@ def response = powershell(script: "Invoke-WebRequest -Uri 'https://api.github.co
     return new groovy.json.JsonSlurper().parseText(response)
 }
 
-def createDynamicStage(name, issue) {
-    def sanitizedStageName = name.replaceAll('[^a-zA-Z0-9 _-]', '') // Supprime caractères spéciaux
-    echo "Creating stage: ${sanitizedStageName}"
-    
-    stage(sanitizedStageName) {
+def createDynamicStage(name, issue) { 
+    stage(name) {
         steps {
             script {
                 echo "Processing issue #${issue.number}: ${issue.title}"
