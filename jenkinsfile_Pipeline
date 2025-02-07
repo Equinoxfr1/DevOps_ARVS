@@ -78,22 +78,23 @@ choice(name: 'Année de naissance', choices: [
                     stage("Identifier les lignes de bus à proximité") {
                         steps {
                             script {
-                                // Appel de la fonction de vérification du jour
-                                def currentDate = new Date()
-                                def currentDay = currentDate.format('dd')  // Récupère le jour actuel
+                    // Appel de la fonction de vérification du jour
+                    def currentDate = new Date()
+                    def currentDay = currentDate.format('dd')  // Récupère le jour actuel
 
-                                // Fonction pour vérifier la période du jour
-                                def checkDayPeriod = { currentDay ->
-                                    def dayInt = currentDay.toInteger()
-                                    if (dayInt >= 1 && dayInt <= 15) {
-                                        echo "Test: Le jour actuel (${currentDay}) est entre le 01 et le 15."
-                                    } else if (dayInt >= 16 && dayInt <= 31) {
-                                        echo "Test: Le jour actuel (${currentDay}) est entre le 16 et le 31."
-                                    }
-                                }
-                                // Appeler la fonction ici aussi
-                                checkDayPeriod(currentDay)
-                            }
+                    // Fonction pour vérifier la période du jour
+                    def checkDayPeriod = { dayToCheck ->
+                        def dayInt = dayToCheck.toInteger()
+                        if (dayInt >= 1 && dayInt <= 15) {
+                            echo "Test: Le jour actuel (${dayToCheck}) est entre le 01 et le 15."
+                        } else if (dayInt >= 16 && dayInt <= 31) {
+                            echo "Test: Le jour actuel (${dayToCheck}) est entre le 16 et le 31."
+                        }
+                    }
+
+                    // Appeler la fonction ici aussi
+                    checkDayPeriod(currentDay)
+                }
                         }
                     }
                      stage("Promouvoir la construction auprès de ses camarades de classe") {
