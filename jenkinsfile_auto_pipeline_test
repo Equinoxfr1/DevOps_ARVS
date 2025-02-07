@@ -17,8 +17,7 @@ pipeline {
 }
 
 def getGitHubIssues() {
-    def repo = "Equinoxfr1/DevOps_ARVS" // Remplace avec ton repo "owner/repository"
-    def url = "https://api.github.com/repos/${repo}/issues"
+    def url = "https://api.github.com/repos/Equinoxfr1/DevOps_ARVS/issues"
 
     def response = powershell(script: "curl -s ${url}", returnStdout: true).trim()
     return new groovy.json.JsonSlurper().parseText(response)
