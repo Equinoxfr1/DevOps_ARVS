@@ -25,12 +25,8 @@ pipeline {
 
                     // Créer un stage pour chaque issue
                     issueTitles.each { issue ->
-                        stage("Issue: ${issue}") {
-                            steps {
-                                echo "Handling issue: ${issue}"
-                                // Ajouter ici les actions pour chaque issue
-                            }
-                        }
+                        echo "Handling issue: ${issue}"
+                        // Ajouter ici les actions pour chaque issue
                     }
                 }
             }
