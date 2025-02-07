@@ -318,6 +318,118 @@
                 }
             }
 
+            stage("Objectifs du Mois de Septembre - Planifier la construction d'une salle d'étude climatisée") {
+                parallel {
+                    stage("Définir les besoins et contraintes du projet") {
+                        steps {
+                            echo "Checking de la coque"
+                            sleep 10
+                            echo "Integrite de la coque a 100%"
+                        }
+                    }
+                    stage("Établir un budget et un plan de conception") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                     stage("Planifier les travaux et la mise en service") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                     stage("Mettre 0000 en code de l'écran") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                }
+            }
 
+
+            stage("Objectifs du Mois d'Octobre - Gagner la course Virtual Regetta") {
+                parallel {
+                    stage("Analyser les conditions météorologiques et la route optimale") {
+                        steps {
+                            echo "Checking de la coque"
+                            sleep 10
+                            echo "Integrite de la coque a 100%"
+                        }
+                    }
+                    stage("Optimiser les réglages du bateau et la gestion du temps") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                     stage("Surveiller et ajuster la stratégie en temps réel") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                }
+            }
+
+            stage("Objectifs du Mois Novembre - Organiser la remise des diplômes du CNAM") {
+                parallel {
+                    stage("Demander aux étudiants de venir") {
+                        steps {
+                            echo "Checking de la coque"
+                            sleep 10
+                            echo "Integrite de la coque a 100%"
+                        }
+                    }
+                    stage("Préparer amphithéâtre pour la remise des diplômes") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                     stage("Oublier les diplômes en format papier") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                }
+            }
+
+
+
+            stage("Objectifs du Mois Décembre - Passer le TOEIC") {
+                parallel {
+                    stage("Planifier des révision") {
+                        steps {
+                            echo "Checking de la coque"
+                            sleep 10
+                            echo "Integrite de la coque a 100%"
+                        }
+                    }
+                    stage("S'inscrire à une session de TOEIC") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                     stage("Faire des tests blanc") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                }
+            }
         }
     }
