@@ -39,26 +39,6 @@ pipeline {
     }
 
     stages {
-        stage('Vérification de la date de naissance') {
-            steps {
-                script {
-                    def mois = params.'Mois de naissance'.toInteger()
-                    def jour = params.'Jour de naissance'.toInteger()
-                    def annee = params.'Année de naissance'.toInteger()
-
-                    // Vérifier le nombre de jours dans le mois sélectionné
-                    def daysInMonth = getDaysInMonth(mois, annee)
-
-                    // Ajuster le jour si nécessaire (en fonction du mois)
-                    if (jour > daysInMonth) {
-                        error "Le jour ${jour} n'existe pas pour le mois ${mois} de l'année ${annee}."
-                    }
-
-                    echo "Date de naissance : ${params.'Jour de naissance'}/${params.'Mois de naissance'}/${params.'Année de naissance'}"
-                }
-            }
-        }
-
         stage('Affichage des paramètres') {
             steps {
                 script {
@@ -70,36 +50,5 @@ pipeline {
                 }
             }
         }
-
-        // Ajoute d'autres stages selon ton besoin
-
     }
-}
-
-// Fonction pour obtenir le nombre de jours dans un mois, prenant en compte les années bissextiles
-def getDaysInMonth(mois, annee) {
-    // Mois avec 31 jours
-    def months31 = [1, 3, 5, 7, 8, 10, 12]
-    if (months31.contains(mois)) {
-        return 31
-    }
-
-    // Mois avec 30 jours
-    def months30 = [4, 6, 9, 11]
-    if (months30.contains(mois)) {
-        return 30
-    }
-
-    // Février (mois 2)
-    if (mois == 2) {
-        // Année bissextile
-        if ((annee % 4 == 0 && annee % 100 != 0) || (annee % 400 == 0)) {
-            return 29
-        } else {
-            return 28
-        }
-    }
-
-    // Retourne un jour par défaut pour éviter les erreurs
-    return 0
 }
