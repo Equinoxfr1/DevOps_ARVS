@@ -57,7 +57,7 @@ choice(name: 'Année de naissance', choices: [
                     
                         // Vérifier si c'est l'anniversaire
                         if ((today == birthDay) && (Month == birthMonth)) {
-                            echo "🎉 Joyeux Anniversaire ${params.PRENOM} ${params.NOM} ! 🎂"
+                            echo "🎉 Joyeux Anniversaire ${params.Prénom} ${params.Nom} ! 🎂"
                         }
                     }
                 }
