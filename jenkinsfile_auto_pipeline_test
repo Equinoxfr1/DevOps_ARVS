@@ -1,14 +1,34 @@
 pipeline {
     agent any
+    
     stages {
         stage('Get Issues') {
             steps {
                 script {
-                    def response = httpRequest url: 'https://api.github.com/repos/Equinoxfr1/DevOps_ARVS/issues'
-                    def issues = readJSON text: response.content
-                    issues.each { issue ->
-                        stage("Issue: ${issue.title}") {
-                            echo "Processing issue: ${issue.title}"
+                    // Définir les variables pour le propriétaire et le nom du projet
+                    def owner = "Equinoxfr1" // Remplace par le nom du propriétaire du repo GitHub
+                    def repo = "DevOps_ARVS" // Remplace par le nom du projet GitHub
+                    
+                    // Construire l'URL complète
+                    def url = "https://api.github.com/repos/${owner}/${repo}/issues"
+                    
+                    // Utiliser Invoke-WebRequest pour récupérer les issues en PowerShell
+                    def response = powershell(script: """
+                        \$response = Invoke-WebRequest -Uri '${url}'
+                        \$response.Content
+                    """, returnStdout: true)
+
+                    // Traiter le JSON retourné
+                    def issues = readJSON text: response
+                    def issueTitles = issues.collect { it.title }
+
+                    // Créer un stage pour chaque issue
+                    issueTitles.each { issue ->
+                        stage("Issue: ${issue}") {
+                            steps {
+                                echo "Handling issue: ${issue}"
+                                // Ajouter ici les actions pour chaque issue
+                            }
                         }
                     }
                 }
