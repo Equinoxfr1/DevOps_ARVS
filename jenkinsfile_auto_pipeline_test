@@ -17,7 +17,7 @@ pipeline {
                         \$response = Invoke-WebRequest -Uri '${url}'
                         \$responseContent = \$response.Content
                         \$json = \$responseContent | ConvertFrom-Json
-                        \$json | ForEach-Object { \$_ .title }
+                        \$json | ForEach-Object { \$_title }
                     """, returnStdout: true).trim()
 
                     // Si tu veux ajouter un traitement plus détaillé ici (par exemple, une liste des titres d'issues)
