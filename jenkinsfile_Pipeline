@@ -54,10 +54,13 @@ choice(name: 'Année de naissance', choices: [
                         def birthDay = "${params.'Jour de naissance'}"  // Jour de naissance
                         def birthMonth = "${params.'Mois de naissance'}"  // Mois de naissance
                         def birthYear = "${params.'Année de naissance'}"  // Année de naissance
+
+                        def currentDate = new Date()
+                        def currentYear = currentDate.format('yyyy')  // Obtient l'année actuelle
                     
                         // Vérifier si c'est l'anniversaire
                         if ((today == birthDay) && (Month == birthMonth)) {
-                            echo "🎉 Joyeux Anniversaire ${params.Prénom} ${params.Nom} ! 🎂"
+                            echo "🎉 Joyeux Anniversaire ${params.Prénom} ${params.Nom} ! Tu as maintenant ${currentYear.toInteger() - birthYear.toInteger()} ans ! 🎂"
                         }
                     }
                 }
