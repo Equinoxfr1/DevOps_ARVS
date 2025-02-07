@@ -24,9 +24,14 @@ def response = powershell(script: "Invoke-WebRequest -Uri 'https://api.github.co
 }
 
 def createDynamicStage(name, issue) {
-    stage(name) {
+    def sanitizedStageName = name.replaceAll('[^a-zA-Z0-9 _-]', '') // Supprime caractères spéciaux
+    echo "Creating stage: ${sanitizedStageName}"
+    
+    stage(sanitizedStageName) {
         steps {
-            echo "Processing issue #${issue.number}: ${issue.title}"
+            script {
+                echo "Processing issue #${issue.number}: ${issue.title}"
+            }
         }
     }
 }
