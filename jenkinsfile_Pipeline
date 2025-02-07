@@ -56,7 +56,7 @@ choice(name: 'Année de naissance', choices: [
                         def birthYear = "${params.'Année de naissance'}"  // Année de naissance
                     
                         // Vérifier si c'est l'anniversaire
-                        if (todayDay == birthDay && todayMonth == birthMonth) {
+                        if ((today == birthDay) && (Month == birthMonth)) {
                             echo "🎉 Joyeux Anniversaire ${params.PRENOM} ${params.NOM} ! 🎂"
                         }
                     }
