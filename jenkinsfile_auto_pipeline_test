@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    stages {
+        stage('Retrieve Issues') {
+            steps {
+                script {
+                    def issues = getGitHubIssues()
+                    issues.each { issue ->
+                        def stageName = "Issue-${issue.number}: ${issue.title}"
+                        echo "Adding stage: ${stageName}"
+                        createDynamicStage(stageName, issue)
+                    }
+                }
+            }
+        }
+    }
+}
+
+def getGitHubIssues() {
+    def repo = "Equinoxfr1/DevOps_ARVS" // Remplace avec ton repo "owner/repository"
+    def url = "https://api.github.com/repos/${repo}/issues"
+
+    def response = sh(script: "curl -s ${url}", returnStdout: true).trim()
+    return new groovy.json.JsonSlurper().parseText(response)
+}
+
+def createDynamicStage(name, issue) {
+    stage(name) {
+        steps {
+            echo "Processing issue #${issue.number}: ${issue.title}"
+        }
+    }
+}
