@@ -37,7 +37,121 @@ pipeline {
         choice(name: 'Jour', choices: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'], description: 'Choisissez le jour de naissance')
 
     }
+    stages {
+        
+        stage("Objectifs du Mois de Janvier - Reconstruire l'arrêt de bus dans ma maison") {
+            parallel {
+                stage("Choisir une pièce de la maison à démolir") {
+                    steps {
+                        echo "Checking de la coque"
+                        sleep 10
+                        echo "Integrite de la coque a 100%"
+                    }
+                }
+                stage("Identifier les lignes de bus à proximité") {
+                    steps {
+                                echo "Checking de la coque"
+                                sleep 10
+                                echo "Integrite de la coque a 100%"
+                            }
+                        }
+                        stage("Promouvoir la construction auprès de ses camarades de classe") {
+                            steps {
+                                echo "Checking de la coque"
+                                sleep 10
+                                echo "Integrite de la coque a 100%"
+                            }
+                        }
+                        stage("Arrêter de faire du covoiturage") {
+                            steps {
+                                echo "Checking de la coque"
+                                sleep 10
+                                echo "Integrite de la coque a 100%"
+                            }
+                        }
+            }
+        }
 
+        stage('Test') {
+            parallel {
+                stage('Verification electronique') {
+                    steps {
+                        echo "Verification des systemes electroniques"
+                        sleep 10
+                        echo "Integrite du systeme electronique a 100%"
+                    }
+                }
+
+                stage('Verification des equipements de navigation') {
+                    steps {
+                        echo "Verification des equipements de navigation"
+                        sleep 10
+                        echo "Leger dysfonctionnement de la carte numerique"
+                    }
+                }
+
+                stage('Verification de la vitesse') {
+                    steps {
+                        echo "Verification de la vitesse"
+                        sleep 15
+                        echo "Test de vitesse ok."
+                    }
+                }
+
+                stage('Verification de la trajectoire') {
+                    steps {
+                        echo "Verification de la trajectoire"
+                        sleep 10
+                        echo "Trajectoire ok."
+                    }
+                }
+
+                stage('Verification de l altitude') {
+                    steps {
+                        echo "Verification de l altitude"
+                        sleep 10
+                        echo "Test altitude ok."
+                    }
+                }
+            }
+        }
+
+        stage('Deploy') {
+            parallel {
+                stage('Verification des propulseurs') {
+                    steps {
+                        echo "Verification de l integrite des propulseurs"
+                        sleep 10
+                        echo "Propulseurs intacts"
+                    }
+                }
+
+                stage('Verification des equipements de secours') {
+                    steps {
+                        echo "Verification de l integrite des equipements de secours"
+                        sleep 10
+                        echo "Equipements de secours ok"
+                    }
+                }
+
+                stage('Verification des communications') {
+                    steps {
+                        echo "Verification des equipements de communication"
+                        sleep 10
+                        echo "Test radio ok."
+                    }
+                }
+
+                stage('Verification du train d atterrissage') {
+                    steps {
+                        echo "Verification du deploiement du train d atterrissage"
+                        sleep 10
+                        echo "Train sorti."
+                    }
+                }
+            }
+        }
+    }
     stages {
         stage('Affichage des paramètres') {
             steps {
