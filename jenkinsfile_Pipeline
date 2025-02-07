@@ -6,7 +6,7 @@ pipeline {
         string(name: 'Prénom', defaultValue: '', description: 'Entrez votre prénom')
 
         // Liste déroulante pour le mois
-        choice(name: 'Mois de naissance', choices: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'], description: 'Choisissez le mois de naissance')
+        choice(name: 'Mois de naissance', choices: ['JANVIER', 'FEVRIER', 'MARS', 'AVRIL', 'MAI', 'JUIN', 'JUILLET', 'AOUT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DECEMBRE'], description: 'Choisissez le mois de naissance')
 
         // Liste déroulante pour le jour, qui dépend du mois sélectionné
         // Par défaut, on prend un maximum de 31 jours, mais il sera ajusté dans le pipeline
@@ -30,8 +30,12 @@ pipeline {
         ], description: 'Choisissez l\'année de naissance')
 
         // Pour les jours actuels
-        string(name: 'Jour actuel', defaultValue: '', description: 'Entrez le jour actuel (format: JJ)')
-        string(name: 'Mois actuel', defaultValue: '', description: 'Entrez le mois actuel (format: MM)')
+        choice(name: 'Mois', choices: ['JANVIER', 'FEVRIER', 'MARS', 'AVRIL', 'MAI', 'JUIN', 'JUILLET', 'AOUT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DECEMBRE'], description: 'Choisissez le mois de naissance')
+
+        // Liste déroulante pour le jour, qui dépend du mois sélectionné
+        // Par défaut, on prend un maximum de 31 jours, mais il sera ajusté dans le pipeline
+        choice(name: 'Jour', choices: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'], description: 'Choisissez le jour de naissance')
+
     }
 
     stages {
