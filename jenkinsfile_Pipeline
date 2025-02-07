@@ -76,7 +76,7 @@ choice(name: 'Année de naissance', choices: [
                                 def Month = "${params.Mois}"
                                 echo "${params.Mois}"
                                 // Appeler la fonction de vérification du jour
-                                if(Month == "01"){
+                                if(Month == "JANVIER"){
                                     def checkDayPeriod = { dayToCheck, month ->
                                         def dayInt = dayToCheck.toInteger()  // Convertir en entier
                                         def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
@@ -102,7 +102,7 @@ choice(name: 'Année de naissance', choices: [
                                 def Month = "${params.Mois}"
 
                                 // Appeler la fonction de vérification du jour
-                                if(Month == "01"){
+                                if(Month == "JANVIER"){
                                     def checkDayPeriod = { dayToCheck, month ->
                                         def dayInt = dayToCheck.toInteger()  // Convertir en entier
                                         def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
@@ -128,7 +128,7 @@ choice(name: 'Année de naissance', choices: [
                                 def Month = "${params.Mois}"
 
                                 // Appeler la fonction de vérification du jour
-                                if(Month == "01"){
+                                if(Month == "JANVIER"){
                                     def checkDayPeriod = { dayToCheck, month ->
                                         def dayInt = dayToCheck.toInteger()  // Convertir en entier
                                         def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
@@ -154,7 +154,7 @@ choice(name: 'Année de naissance', choices: [
                                 def Month = "${params.Mois}"
 
                                 // Appeler la fonction de vérification du jour
-                                if(Month == "01"){
+                                if(Month == "JANVIER"){
                                     def checkDayPeriod = { dayToCheck, month ->
                                         def dayInt = dayToCheck.toInteger()  // Convertir en entier
                                         def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
@@ -185,7 +185,7 @@ choice(name: 'Année de naissance', choices: [
                                 def Month = "${params.Mois}"
 
                                 // Appeler la fonction de vérification du jour
-                                if(Month == "02"){
+                                if(Month == "FEVRIER"){
                                     def checkDayPeriod = { dayToCheck, month ->
                                         def dayInt = dayToCheck.toInteger()  // Convertir en entier
                                         def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
