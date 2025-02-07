@@ -46,6 +46,24 @@ choice(name: 'Année de naissance', choices: [
 
         }
         stages { 
+            stage('Vérification Anniversaire') {
+                steps {
+                    script {
+                        def today = "${params.Jour}"
+                        def Month = "${Mois}"
+                        def birthDay = "${params.Jour de naissance}"
+                        def birthMonth = "${Mois de naissance}"
+                        def birthYear = "${Année de naissance}"
+                        //def currentYear = new Date().format("yyyy").toInteger()
+                        //def age = currentYear - birthYear
+                        if (today == birthDay) {
+                            if(Month == birthMonth){
+                                echo "🎉 Joyeux Anniversaire ${params.PRENOM} ${params.NOM} ! Tu as maintenant 97 ans ! 🎂"
+                            }
+                        } 
+                    }
+                }
+            }
             stage("Objectifs du Mois de Janvier - Reconstruire l'arrêt de bus dans ma maison") {
                 parallel {
                     stage("Choisir une pièce de la maison à démolir") {
