@@ -5,35 +5,10 @@ pipeline {
             steps {
                 script {
                     def issues = getGitHubIssues()
-                    def parallelStages = [:] // Stocke les stages pour parallel execution
-
                     issues.each { issue ->
-                        def sanitizedStageName = "Issue-${issue.number}".replaceAll('[^a-zA-Z0-9 _-]', '_') // Nettoyage
-                        
-                        echo "Adding stage: ${sanitizedStageName}"
-
-                        // Ajoute chaque stage à la map parallelStages
-                        parallelStages[sanitizedStageName] = {
-                            stage(sanitizedStageName) {
-                                steps {
-                                    script {
-                                        try {
-                                            echo "Processing issue #${issue.number}: ${issue.title}"
-                                            // Ajoute ici les actions spécifiques à traiter pour chaque issue
-                                        } catch (e) {
-                                            echo "Error processing issue #${issue.number}: ${e.message}"
-                                            throw e // Permet de signaler l'erreur pour le debug
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    if (parallelStages.isEmpty()) {
-                        echo "No issues found, skipping dynamic stages."
-                    } else {
-                        parallel parallelStages // Exécution parallèle des stages
+                        def stageName = "Issue-${issue.number}: ${issue.title}"
+                        echo "Adding stage: ${stageName}"
+                        createDynamicStage(stageName, issue)
                     }
                 }
             }
@@ -44,6 +19,19 @@ pipeline {
 def getGitHubIssues() {
     def url = "https://api.github.com/repos/Equinoxfr1/DevOps_ARVS/issues"
 
-    def response = powershell(script: "Invoke-WebRequest -Uri 'https://api.github.com/repos/Equinoxfr1/DevOps_ARVS/issues' -UseBasicParsing | Select-Object -ExpandProperty Content", returnStdout: true).trim()
+def response = powershell(script: "Invoke-WebRequest -Uri 'https://api.github.com/repos/Equinoxfr1/DevOps_ARVS/issues' -UseBasicParsing | Select-Object -ExpandProperty Content", returnStdout: true).trim()
     return new groovy.json.JsonSlurper().parseText(response)
+}
+
+def createDynamicStage(name, issue) {
+    def sanitizedStageName = name.replaceAll('[^a-zA-Z0-9 _-]', '') // Supprime caractères spéciaux
+    echo "Creating stage: ${sanitizedStageName}"
+    
+    stage(sanitizedStageName) {
+        steps {
+            script {
+                echo "Processing issue #${issue.number}: ${issue.title}"
+            }
+        }
+    }
 }
