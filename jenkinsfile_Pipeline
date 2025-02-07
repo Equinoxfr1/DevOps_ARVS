@@ -74,7 +74,7 @@ choice(name: 'Année de naissance', choices: [
                             script {
                                 def today = "${params.Jour}"  // Récupère le jour du paramètre
                                 def Month = "${params.Mois}"
-
+                                echo "${params.Mois}"
                                 // Appeler la fonction de vérification du jour
                                 if(Month == "01"){
                                     def checkDayPeriod = { dayToCheck, month ->
