@@ -20,14 +20,22 @@ pipeline {
                         \$json | ForEach-Object { \$_title }
                     """, returnStdout: true).trim()
 
-                    // Si tu veux ajouter un traitement plus détaillé ici (par exemple, une liste des titres d'issues)
+                    // Split des titres d'issues
                     def issueTitles = response.split("\n")
+                    
+                    // Création des stages dynamiques pour chaque issue
+                    def parallelStages = [:]
 
-                    // Créer un stage pour chaque issue
                     issueTitles.each { issue ->
-                        echo "Handling issue: ${issue}"
-                        // Ajouter ici les actions pour chaque issue
+                        // Utilisation de `parallel` pour créer un stage pour chaque issue
+                        parallelStages["Handle issue: ${issue}"] = {
+                            echo "Handling issue: ${issue}"
+                            // Ajouter ici les actions à effectuer pour chaque issue, par exemple des étapes supplémentaires
+                        }
                     }
+
+                    // Exécution parallèle des stages créés
+                    parallel parallelStages
                 }
             }
         }
