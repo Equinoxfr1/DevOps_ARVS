@@ -198,6 +198,125 @@
                 }
             }
 
+            stage("Objectifs du Mois de Mai - Préparer sa rentrée en ATS") {
+                parallel {
+                    stage("Assister à la présentation de l'ATS") {
+                        steps {
+                            echo "Checking de la coque"
+                            sleep 10
+                            echo "Integrite de la coque a 100%"
+                        }
+                    }
+                    stage("Obtenir son BTS avec 16+ de moyenne") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                     stage("Réunir et envoyer les documents au centre de formation") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                }
+            }
+
+
+            stage("Objectifs du Mois de Juin - Installer un serveur de supervision Centreon") {
+                parallel {
+                    stage("Installer ESXi VMWare sur un disque virtuel RAID 5") {
+                        steps {
+                            echo "Checking de la coque"
+                            sleep 10
+                            echo "Integrite de la coque a 100%"
+                        }
+                    }
+                    stage("Installer l'iso préconfiguré de CentOS 7") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                     stage("Configurer CentOS 7 pour les switchs HP") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                     stage("Faire du carte du réseau informatique") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                }
+            }
+
+            stage("Objectifs du Mois de Juillet - Se reconvertir dans les métiers du livre") {
+                parallel {
+                    stage("Rechercher une école pour un but MMI") {
+                        steps {
+                            echo "Checking de la coque"
+                            sleep 10
+                            echo "Integrite de la coque a 100%"
+                        }
+                    }
+                    stage("Arrêter sa formation actuelle avant les épreuves finales") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                     stage("Rechercher une entreprise pour son alternance") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                }
+            }
+
+
+            stage("Objectifs du Mois de Août - Préparer ses vacances à Gnigny") {
+                parallel {
+                    stage("Préparer sa valise") {
+                        steps {
+                            echo "Checking de la coque"
+                            sleep 10
+                            echo "Integrite de la coque a 100%"
+                        }
+                    }
+                    stage("Réserver le lieu d'hébergement à Grigny") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                     stage("S'assurer d'avoir un portable et des chaussures de rechanges") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                     stage("Planifier son trajet pour éviter les coins dit 'chaud'") {
+                        steps {
+                                    echo "Checking de la coque"
+                                    sleep 10
+                                    echo "Integrite de la coque a 100%"
+                                }
+                     }
+                }
+            }
 
 
         }
