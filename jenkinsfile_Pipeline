@@ -45,8 +45,8 @@ pipeline {
                     echo "Nom : ${params.Nom}"
                     echo "Prénom : ${params.Prénom}"
                     echo "Date de naissance : ${params.'Jour de naissance'}/${params.'Mois de naissance'}/${params.'Année de naissance'}"
-                    echo "Jour actuel : ${params.'Jour actuel'}"
-                    echo "Mois actuel : ${params.'Mois actuel'}"
+                    echo "Jour actuel : ${params.'Jour'}"
+                    echo "Mois actuel : ${params.'Mois'}"
                 }
             }
         }
