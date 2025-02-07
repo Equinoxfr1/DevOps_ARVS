@@ -1,8 +1,6 @@
 pipeline {
     agent any
-
     stages {
-        
         stage("Objectifs du Mois de Janvier - Reconstruire l'arrêt de bus dans ma maison") {
             parallel {
                 stage("Choisir une pièce de la maison à démolir") {
@@ -18,15 +16,88 @@ pipeline {
                                 sleep 10
                                 echo "Integrite de la coque a 100%"
                             }
+                }
+                stage("Promouvoir la construction auprès de ses camarades de classe") {
+                     steps {
+                                echo "Checking de la coque"
+                                sleep 10
+                                echo "Integrite de la coque a 100%"
+                            }
                         }
-                        stage("Promouvoir la construction auprès de ses camarades de classe") {
+                 stage("Arrêter de faire du covoiturage") {
+                            steps {
+                                echo "Checking de la coque"
+                                sleep 10
+                                echo "Integrite de la coque a 100%"
+                            }
+                 }
+            }
+        }
+        
+        stage("Objectifs du Mois de Février - Obtenir le CCNA 2 à 97%") {
+            parallel {
+                stage("Ajouter une adresse IP sur un switch") {
+                    steps {
+                        echo "Checking de la coque"
+                        sleep 10
+                        echo "Integrite de la coque a 100%"
+                    }
+                }
+                stage("Oublier sa clé USB") {
+                    steps {
+                                echo "Checking de la coque"
+                                sleep 10
+                                echo "Integrite de la coque a 100%"
+                            }
+                        }
+                stage("Changer l'adresse MAC du routeur") {
                             steps {
                                 echo "Checking de la coque"
                                 sleep 10
                                 echo "Integrite de la coque a 100%"
                             }
                         }
-                        stage("Arrêter de faire du covoiturage") {
+                stage("Se garer sur le terre plein") {
+                            steps {
+                                echo "Checking de la coque"
+                                sleep 10
+                                echo "Integrite de la coque a 100%"
+                            }
+                        }
+                 stage("Aller chercher sa petite soeur à l'école") {
+                            steps {
+                                echo "Checking de la coque"
+                                sleep 10
+                                echo "Integrite de la coque a 100%"
+                            }
+                  }
+            }
+        }
+
+        stage("Objectifs du Mois de Mars - Reconstruire le lit de Martin") {
+            parallel {
+                stage("Vérifier l'état du lit") {
+                    steps {
+                        echo "Checking de la coque"
+                        sleep 10
+                        echo "Integrite de la coque a 100%"
+                    }
+                }
+                stage("Remplacer les lattes du lit") {
+                    steps {
+                                echo "Checking de la coque"
+                                sleep 10
+                                echo "Integrite de la coque a 100%"
+                            }
+                        }
+                stage("Consolider les embouts de lattes") {
+                            steps {
+                                echo "Checking de la coque"
+                                sleep 10
+                                echo "Integrite de la coque a 100%"
+                            }
+                        }
+                stage("Mettre un matelas plus léger") {
                             steps {
                                 echo "Checking de la coque"
                                 sleep 10
@@ -36,84 +107,67 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        stage("Objectifs du Mois d'Avril - Rendre le compte-rendu du TP CCourbe") {
             parallel {
-                stage('Verification electronique') {
+                stage("Installer le framework Qt sur son ordinateur") {
                     steps {
-                        echo "Verification des systemes electroniques"
+                        echo "Checking de la coque"
                         sleep 10
-                        echo "Integrite du systeme electronique a 100%"
+                        echo "Integrite de la coque a 100%"
                     }
                 }
-
-                stage('Verification des equipements de navigation') {
+                stage("Suivre les étapes du TP CCourbes") {
                     steps {
-                        echo "Verification des equipements de navigation"
-                        sleep 10
-                        echo "Leger dysfonctionnement de la carte numerique"
-                    }
-                }
-
-                stage('Verification de la vitesse') {
-                    steps {
-                        echo "Verification de la vitesse"
-                        sleep 15
-                        echo "Test de vitesse ok."
-                    }
-                }
-
-                stage('Verification de la trajectoire') {
-                    steps {
-                        echo "Verification de la trajectoire"
-                        sleep 10
-                        echo "Trajectoire ok."
-                    }
-                }
-
-                stage('Verification de l altitude') {
-                    steps {
-                        echo "Verification de l altitude"
-                        sleep 10
-                        echo "Test altitude ok."
-                    }
-                }
+                                echo "Checking de la coque"
+                                sleep 10
+                                echo "Integrite de la coque a 100%"
+                            }
+                        }
+                stage("Rédiger le compte-rendu sur un document libre Office Writer") {
+                            steps {
+                                echo "Checking de la coque"
+                                sleep 10
+                                echo "Integrite de la coque a 100%"
+                            }
+                        }
+                stage("Corriger les fautes d'orthographes avec Antidote") {
+                            steps {
+                                echo "Checking de la coque"
+                                sleep 10
+                                echo "Integrite de la coque a 100%"
+                            }
+                        }
+                 stage("Utiliser ChatGPT 2.0 pour s'aider dans la rédaction") {
+                            steps {
+                                echo "Checking de la coque"
+                                sleep 10
+                                echo "Integrite de la coque a 100%"
+                            }
+                  }
+                 stage("Travailler en groupe de 3 personnes") {
+                            steps {
+                                echo "Checking de la coque"
+                                sleep 10
+                                echo "Integrite de la coque a 100%"
+                            }
+                  }
+                 stage("Respecter la deadline de 1 semaine après la fin du module") {
+                            steps {
+                                echo "Checking de la coque"
+                                sleep 10
+                                echo "Integrite de la coque a 100%"
+                            }
+                  }
             }
         }
 
-        stage('Deploy') {
-            parallel {
-                stage('Verification des propulseurs') {
-                    steps {
-                        echo "Verification de l integrite des propulseurs"
-                        sleep 10
-                        echo "Propulseurs intacts"
-                    }
-                }
 
-                stage('Verification des equipements de secours') {
-                    steps {
-                        echo "Verification de l integrite des equipements de secours"
-                        sleep 10
-                        echo "Equipements de secours ok"
-                    }
-                }
 
-                stage('Verification des communications') {
-                    steps {
-                        echo "Verification des equipements de communication"
-                        sleep 10
-                        echo "Test radio ok."
-                    }
-                }
 
-                stage('Verification du train d atterrissage') {
-                    steps {
-                        echo "Verification du deploiement du train d atterrissage"
-                        sleep 10
-                        echo "Train sorti."
-                    }
-                }
-            }
-        }
+
+
+
+
+
     }
 }
