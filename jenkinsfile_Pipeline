@@ -51,16 +51,14 @@ choice(name: 'Année de naissance', choices: [
                     script {
                         def today = "${params.Jour}"
                         def Month = "${Mois}"
-                        def birthDay = "${params.Jour de naissance}"
-                        def birthMonth = "${Mois de naissance}"
-                        def birthYear = "${Année de naissance}"
-                        //def currentYear = new Date().format("yyyy").toInteger()
-                        //def age = currentYear - birthYear
-                        if (today == birthDay) {
-                            if(Month == birthMonth){
-                                echo "🎉 Joyeux Anniversaire ${params.PRENOM} ${params.NOM} ! Tu as maintenant 97 ans ! 🎂"
-                            }
-                        } 
+                        def birthDay = "${params.'Jour de naissance'}"  // Jour de naissance
+                        def birthMonth = "${params.'Mois de naissance'}"  // Mois de naissance
+                        def birthYear = "${params.'Année de naissance'}"  // Année de naissance
+                    
+                        // Vérifier si c'est l'anniversaire
+                        if (todayDay == birthDay && todayMonth == birthMonth) {
+                            echo "🎉 Joyeux Anniversaire ${params.PRENOM} ${params.NOM} ! 🎂"
+                        }
                     }
                 }
             }
