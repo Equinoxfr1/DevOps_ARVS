@@ -10,17 +10,18 @@ pipeline {
                     def repo = "DevOps_ARVS" // Remplace par le nom du projet GitHub
                     
                     // Construire l'URL complète
-                    def url = "https://api.github.com/repos/Equinoxfr1/DevOps_ARVS/issues"
+                    def url = "https://api.github.com/repos/${owner}/${repo}/issues"
                     
                     // Utiliser Invoke-WebRequest pour récupérer les issues en PowerShell
                     def response = powershell(script: """
                         \$response = Invoke-WebRequest -Uri '${url}'
-                        \$response.Content
-                    """, returnStdout: true)
+                        \$responseContent = \$response.Content
+                        \$json = \$responseContent | ConvertFrom-Json
+                        \$json | ForEach-Object { \$_ .title }
+                    """, returnStdout: true).trim()
 
-                    // Traiter le JSON retourné
-                    def issues = readJSON text: response
-                    def issueTitles = issues.collect { it.title }
+                    // Si tu veux ajouter un traitement plus détaillé ici (par exemple, une liste des titres d'issues)
+                    def issueTitles = response.split("\n")
 
                     // Créer un stage pour chaque issue
                     issueTitles.each { issue ->
