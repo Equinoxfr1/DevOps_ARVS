@@ -1,29 +1,22 @@
 pipeline {
     agent any
-    environment {
-        GITHUB_REPO = 'https://github.com/Equinoxfr1/DevOps_ARVS/issues'  // Remplacer OWNER et REPO par les valeurs appropriées
-    }
+    
     stages {
         stage('Get Issues') {
             steps {
                 script {
-                    // Récupérer la liste des issues depuis l'API GitHub
-                    def response = sh(script: "curl -s ${GITHUB_REPO}", returnStdout: true).trim()
-
-                    // Parser les issues JSON et créer un tableau d'issues
-                    def issues = readJSON text: response
-
-                    // Créer dynamiquement des stages pour chaque issue
-                    for (int i = 0; i < issues.size(); i++) {
-                        def issue = issues[i]
-                        def issueName = issue.title.replaceAll(/[^a-zA-Z0-9]/, '_')  // Remplacer les caractères spéciaux par des underscores
-
-                        // Créer un stage dynamique pour chaque issue
-                        stage("Issue: ${issueName}") {
+                    // Récupérer les issues via l'API GitHub
+                    def response = sh(script: 'curl -s https://api.github.com/repos/Equinoxfr1/DevOps_ARVS/issues', returnStdout: true)
+                    
+                    // Utiliser jq pour extraire les titres des issues
+                    def issues = sh(script: "echo '${response}' | jq -r '.[] | .title'", returnStdout: true).split('\n')
+                    
+                    // Créer un stage pour chaque issue
+                    issues.each { issue ->
+                        stage("Issue: ${issue}") {
                             steps {
-                                echo "Processing issue: ${issue.title}"
-                                // Ajouter ici des étapes spécifiques pour chaque issue
-                                // Par exemple, exécuter un test ou une action liée à l'issue
+                                echo "Handling issue: ${issue}"
+                                // Ajouter ici ce que tu veux faire pour chaque issue, par exemple une tâche de test ou d'intégration
                             }
                         }
                     }
