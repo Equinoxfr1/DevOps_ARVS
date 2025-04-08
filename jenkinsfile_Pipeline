@@ -51,11 +51,11 @@ pipeline {
                 script {
                     def today = "${params.'Jour Actuel'}"
                     def Month = "${params.'Mois Actuel'}"
-                    def birthDay = "${params.'Jour de naissance'}"  // Jour de naissance
-                    def birthMonth = "${params.'Mois de naissance'}"  // Mois de naissance
-                    def birthYear = "${params.'Année de naissance'}"  // Année de naissance
+                    def birthDay = "${params.'Jour de naissance'}"
+                    def birthMonth = "${params.'Mois de naissance'}"
+                    def birthYear = "${params.'Année de naissance'}"
                     def currentDate = new Date()
-                    def currentYear = currentDate.format('yyyy')  // Obtient l'année actuelle
+                    def currentYear = currentDate.format('yyyy')
 
                     // Vérifier si c'est l'anniversaire
                     if ((today == birthDay) && (Month == birthMonth)) {
@@ -326,7 +326,7 @@ pipeline {
                         }
                     }
                 }
-                stage("S'assurer d'avoir un portable et des chaussures de rechanges") {
+                stage("S'assurer d'avoir un portable et des chaussures de rechange") {
                     steps {
                         script {
                             checkMonthlyObjectives('AOUT', "${params.Jour}")
@@ -457,6 +457,11 @@ pipeline {
 }
 
 def checkMonthlyObjectives(String month, String day) {
+    if (day == null || day.isEmpty()) {
+        echo "Le jour est invalide."
+        return
+    }
+
     def dayInt = day.toInteger()
     def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
 
