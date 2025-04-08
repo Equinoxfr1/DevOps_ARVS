@@ -36,34 +36,22 @@ pipeline {
             '1911', '1910', '1909', '1908', '1907', '1906',
             '1905', '1904', '1903', '1902', '1901', '1900'
         ], description: 'Selectionnez votre année de naissance')
-
-        // Pour la date actuelle
-        choice(name: 'Mois Actuel', choices: ['JANVIER', 'FEVRIER', 'MARS', 'AVRIL', 'MAI', 'JUIN', 'JUILLET', 'AOUT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DECEMBRE'], description: 'Selectionnez le mois actuel')
-
-        // Liste déroulante pour le jour, qui dépend du mois sélectionné
-        // Par défaut, on prend un maximum de 31 jours, mais il sera ajusté dans le pipeline
-        choice(name: 'Jour Actuel', choices: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31'], description: 'Selectionnez le jour actuel')
     }
 
     stages {
         stage('Vérification Anniversaire') {
             steps {
                 script {
-                    def today = "${params.'Jour Actuel'}"
-                    def Month = "${params.'Mois Actuel'}"
+                    def today = new Date().format('dd')
+                    def currentMonth = new Date().format('MMMM').toUpperCase()
                     def birthDay = "${params.'Jour de naissance'}"
                     def birthMonth = "${params.'Mois de naissance'}"
                     def birthYear = "${params.'Année de naissance'}"
                     def currentDate = new Date()
                     def currentYear = currentDate.format('yyyy')
 
-                    // Vérifier si les paramètres sont définis
-                    if (today == null || today.isEmpty() || Month == null || Month.isEmpty()) {
-                        error "Les paramètres 'Jour Actuel' et 'Mois Actuel' doivent être définis."
-                    }
-
                     // Vérifier si c'est l'anniversaire
-                    if ((today == birthDay) && (Month == birthMonth)) {
+                    if ((today == birthDay) && (currentMonth == birthMonth)) {
                         echo "🎉 Joyeux Anniversaire ${params.Prénom} ${params.Nom} ! Tu as maintenant ${currentYear.toInteger() - birthYear.toInteger()} ans ! 🎂"
                     }
                 }
@@ -75,7 +63,7 @@ pipeline {
                 stage("Choisir une pièce de la maison à démolir") {
                     steps {
                         script { _ ->
-                            checkMonthlyObjectives('JANVIER', "${params.'Jour Actuel'}")
+                            checkMonthlyObjectives('JANVIER', new Date().format('dd'))
                             //echo "Objectif réalisé !"
                         }
                     }
@@ -109,35 +97,35 @@ pipeline {
                 stage("Ajouter une adresse IP sur le switch") {
                     steps {
                         script { _ ->
-                            checkMonthlyObjectives('FEVRIER', "${params.'Jour Actuel'}")
+                            checkMonthlyObjectives('FEVRIER', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Oublier sa clé USB") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('FEVRIER', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('FEVRIER', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Changer l'adresse MAC du routeur") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('FEVRIER', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('FEVRIER', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Se garer sur le terre-plein") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('FEVRIER', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('FEVRIER', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Aller chercher sa sœur à la maternelle tous les lundis") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('FEVRIER', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('FEVRIER', new Date().format('dd'))
                         }
                     }
                 }
@@ -149,28 +137,28 @@ pipeline {
                 stage("Vérifier l'état du lit") {
                     steps {
                         script { _ ->
-                            checkMonthlyObjectives('MARS', "${params.'Jour Actuel'}")
+                            checkMonthlyObjectives('MARS', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Remplacer les lattes du lit") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('MARS', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('MARS', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Consolider les embouts de lattes") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('MARS', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('MARS', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Mettre un matelas plus léger sur le lit") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('MARS', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('MARS', new Date().format('dd'))
                         }
                     }
                 }
@@ -182,49 +170,49 @@ pipeline {
                 stage("Installer le framework Qt sur son poste") {
                     steps {
                         script { _ ->
-                            checkMonthlyObjectives('AVRIL', "${params.'Jour Actuel'}")
+                            checkMonthlyObjectives('AVRIL', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Suivre les étapes du TP CCourbes") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('AVRIL', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Rédiger le compte-rendu sur un document Libre Office Writer") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('AVRIL', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Corriger les fautes d'orthographe avec Antidote") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('AVRIL', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Utiliser ChatGPT 2.0 pour s'aider dans la rédaction") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('AVRIL', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Travailler en groupe de 3 personnes") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('AVRIL', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Respecter la deadline de une semaine après la fin du module") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('AVRIL', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
                         }
                     }
                 }
@@ -236,21 +224,21 @@ pipeline {
                 stage("Assister à la présentation de l'ATS") {
                     steps {
                         script { _ ->
-                            checkMonthlyObjectives('MAI', "${params.'Jour Actuel'}")
+                            checkMonthlyObjectives('MAI', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Obtenir son BTS avec 16+ de moyenne") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('MAI', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('MAI', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Réunir et envoyer les documents au centre de formation") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('MAI', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('MAI', new Date().format('dd'))
                         }
                     }
                 }
@@ -262,28 +250,28 @@ pipeline {
                 stage("Installer ESXi VMWare sur un disque virtuel RAID 5") {
                     steps {
                         script { _ ->
-                            checkMonthlyObjectives('JUIN', "${params.'Jour Actuel'}")
+                            checkMonthlyObjectives('JUIN', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Installer l'iso préconfiguré de CentOS 7") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('JUIN', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('JUIN', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Configurer CentOS 7 pour les switchs HP") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('JUIN', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('JUIN', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Faire du carte du réseau informatique") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('JUIN', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('JUIN', new Date().format('dd'))
                         }
                     }
                 }
@@ -295,21 +283,21 @@ pipeline {
                 stage("Rechercher une école pour un but MMI") {
                     steps {
                         script { _ ->
-                            checkMonthlyObjectives('JUILLET', "${params.'Jour Actuel'}")
+                            checkMonthlyObjectives('JUILLET', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Arrêter sa formation actuelle avant les épreuves finales") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('JUILLET', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('JUILLET', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Rechercher une entreprise pour son alternance") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('JUILLET', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('JUILLET', new Date().format('dd'))
                         }
                     }
                 }
@@ -321,28 +309,28 @@ pipeline {
                 stage("Préparer sa valise") {
                     steps {
                         script { _ ->
-                            checkMonthlyObjectives('AOUT', "${params.'Jour Actuel'}")
+                            checkMonthlyObjectives('AOUT', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Réserver le lieu d'hébergement à Grigny") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('AOUT', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('AOUT', new Date().format('dd'))
                         }
                     }
                 }
                 stage("S'assurer d'avoir un portable et des chaussures de rechange") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('AOUT', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('AOUT', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Planifier son trajet pour éviter les coins dit 'chaud'") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('AOUT', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('AOUT', new Date().format('dd'))
                         }
                     }
                 }
@@ -354,28 +342,28 @@ pipeline {
                 stage("Définir les besoins et contraintes du projet") {
                     steps {
                         script { _ ->
-                            checkMonthlyObjectives('SEPTEMBRE', "${params.'Jour Actuel'}")
+                            checkMonthlyObjectives('SEPTEMBRE', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Établir un budget et un plan de conception") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('SEPTEMBRE', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('SEPTEMBRE', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Planifier les travaux et la mise en service") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('SEPTEMBRE', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('SEPTEMBRE', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Mettre 0000 en code de l'écran") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('SEPTEMBRE', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('SEPTEMBRE', new Date().format('dd'))
                         }
                     }
                 }
@@ -387,21 +375,21 @@ pipeline {
                 stage("Analyser les conditions météorologiques et la route optimale") {
                     steps {
                         script { _ ->
-                            checkMonthlyObjectives('OCTOBRE', "${params.'Jour Actuel'}")
+                            checkMonthlyObjectives('OCTOBRE', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Optimiser les réglages du bateau et la gestion du temps") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('OCTOBRE', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('OCTOBRE', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Surveiller et ajuster la stratégie en temps réel") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('OCTOBRE', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('OCTOBRE', new Date().format('dd'))
                         }
                     }
                 }
@@ -413,21 +401,21 @@ pipeline {
                 stage("Demander aux étudiants de venir") {
                     steps {
                         script { _ ->
-                            checkMonthlyObjectives('NOVEMBRE', "${params.'Jour Actuel'}")
+                            checkMonthlyObjectives('NOVEMBRE', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Préparer amphithéâtre pour la remise des diplômes") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('NOVEMBRE', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('NOVEMBRE', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Oublier les diplômes en format papier") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('NOVEMBRE', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('NOVEMBRE', new Date().format('dd'))
                         }
                     }
                 }
@@ -439,21 +427,21 @@ pipeline {
                 stage("Planifier des révisions") {
                     steps {
                         script { _ ->
-                            checkMonthlyObjectives('DECEMBRE', "${params.'Jour Actuel'}")
+                            checkMonthlyObjectives('DECEMBRE', new Date().format('dd'))
                         }
                     }
                 }
                 stage("S'inscrire à une session de TOEIC") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('DECEMBRE', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('DECEMBRE', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Faire des tests blancs") {
                     steps {
                         script { _ ->
-                            //checkMonthlyObjectives('DECEMBRE', "${params.'Jour Actuel'}")
+                            //checkMonthlyObjectives('DECEMBRE', new Date().format('dd'))
                         }
                     }
                 }
@@ -472,7 +460,7 @@ def checkMonthlyObjectives(String month, String day) {
     def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
 
     // Vérifier si le mois actuel correspond au mois passé en paramètre
-    if (month.toUpperCase() == "${params.'Mois Actuel'}".toUpperCase()) {
+    if (month.toUpperCase() == new Date().format('MMMM').toUpperCase()) {
     echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
     switch (month.toUpperCase()) {
                 case 'JANVIER':
