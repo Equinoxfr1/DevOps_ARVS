@@ -406,8 +406,8 @@ pipeline {
                 }
                 stage("Mettre 0000 en code de l'écran") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('SEPTEMBRE', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('62') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
@@ -420,20 +420,21 @@ pipeline {
                     steps {
                         script {
                             checkMonthlyObjectives('OCTOBRE', new Date().format('dd'))
+                            checkIssueStatus('31') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Optimiser les réglages du bateau et la gestion du temps") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('OCTOBRE', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('32') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Surveiller et ajuster la stratégie en temps réel") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('OCTOBRE', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('35') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
@@ -446,20 +447,21 @@ pipeline {
                     steps {
                         script {
                             checkMonthlyObjectives('NOVEMBRE', new Date().format('dd'))
+                            checkIssueStatus('42') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Préparer amphithéâtre pour la remise des diplômes") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('NOVEMBRE', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('46') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Oublier les diplômes en format papier") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('NOVEMBRE', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('51') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
@@ -472,20 +474,21 @@ pipeline {
                     steps {
                         script {
                             checkMonthlyObjectives('DECEMBRE', new Date().format('dd'))
+                            checkIssueStatus('23') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("S'inscrire à une session de TOEIC") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('DECEMBRE', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('27') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Faire des tests blancs") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('DECEMBRE', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('29') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
