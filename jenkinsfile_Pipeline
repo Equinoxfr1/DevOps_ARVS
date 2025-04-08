@@ -232,78 +232,21 @@ choice(name: 'Année de naissance', choices: [
                     stage("Assister à la présentation de l'ATS") {
                         steps {
                             script {
-                                def today = "${params.Jour}"  // Récupère le jour du paramètre
-                                def Month = "${params.Mois}"
-
-                                // Appeler la fonction de vérification du jour
-                                if(Month == "MAI"){
-                                    def checkDayPeriod = { dayToCheck, month ->
-                                        def dayInt = dayToCheck.toInteger()  // Convertir en entier
-                                        def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
-
-                                        if (dayInt >= 1 && dayInt <= 15) {
-                                            echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
-                                        } 
-                                        else if (dayInt >= 16 && dayInt <= 31) {
-                                            def remainingDays = daysInMonth[month.toUpperCase()] - dayInt  // Calculer les jours restants
-                                            echo "Il ne vous reste que ${remainingDays} jours pour accomplir vos objectifs. Courage 💪!"
-                                        }
-                                    }
-                                    // Appel de la fonction ici aussi
-                                    checkDayPeriod(today, Month)
-                                }
+                                checkMonthlyObjectives('MAI', "${params.Jour}")
                             }
                         }
                     }
                     stage("Obtenir son BTS avec 16+ de moyenne") {
                         steps {
                             script {
-                                def today = "${params.Jour}"  // Récupère le jour du paramètre
-                                def Month = "${params.Mois}"
-
-                                // Appeler la fonction de vérification du jour
-                                if(Month == "MAI"){
-                                    def checkDayPeriod = { dayToCheck, month ->
-                                        def dayInt = dayToCheck.toInteger()  // Convertir en entier
-                                        def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
-
-                                        if (dayInt >= 1 && dayInt <= 15) {
-                                            echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
-                                        } 
-                                        else if (dayInt >= 16 && dayInt <= 31) {
-                                            def remainingDays = daysInMonth[month.toUpperCase()] - dayInt  // Calculer les jours restants
-                                            echo "Il ne vous reste que ${remainingDays} jours pour accomplir vos objectifs. Courage 💪!"
-                                        }
-                                    }
-                                    // Appel de la fonction ici aussi
-                                    checkDayPeriod(today, Month)
-                                }
+                                checkMonthlyObjectives('MAI', "${params.Jour}")
                             }
                         }
                      }
                      stage("Réunir et envoyer les documents au centre de formation") {
                         steps {
                             script {
-                                def today = "${params.Jour}"  // Récupère le jour du paramètre
-                                def Month = "${params.Mois}"
-
-                                // Appeler la fonction de vérification du jour
-                                if(Month == "MAI"){
-                                    def checkDayPeriod = { dayToCheck, month ->
-                                        def dayInt = dayToCheck.toInteger()  // Convertir en entier
-                                        def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
-
-                                        if (dayInt >= 1 && dayInt <= 15) {
-                                            echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
-                                        } 
-                                        else if (dayInt >= 16 && dayInt <= 31) {
-                                            def remainingDays = daysInMonth[month.toUpperCase()] - dayInt  // Calculer les jours restants
-                                            echo "Il ne vous reste que ${remainingDays} jours pour accomplir vos objectifs. Courage 💪!"
-                                        }
-                                    }
-                                    // Appel de la fonction ici aussi
-                                    checkDayPeriod(today, Month)
-                                }
+                                checkMonthlyObjectives('MAI', "${params.Jour}")
                             }
                         }
                      }
@@ -316,104 +259,28 @@ choice(name: 'Année de naissance', choices: [
                     stage("Installer ESXi VMWare sur un disque virtuel RAID 5") {
                         steps {
                             script {
-                                def today = "${params.Jour}"  // Récupère le jour du paramètre
-                                def Month = "${params.Mois}"
-
-                                // Appeler la fonction de vérification du jour
-                                if(Month == "JUIN"){
-                                    def checkDayPeriod = { dayToCheck, month ->
-                                        def dayInt = dayToCheck.toInteger()  // Convertir en entier
-                                        def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
-
-                                        if (dayInt >= 1 && dayInt <= 15) {
-                                            echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
-                                        } 
-                                        else if (dayInt >= 16 && dayInt <= 31) {
-                                            def remainingDays = daysInMonth[month.toUpperCase()] - dayInt  // Calculer les jours restants
-                                            echo "Il ne vous reste que ${remainingDays} jours pour accomplir vos objectifs. Courage 💪!"
-                                        }
-                                    }
-                                    // Appel de la fonction ici aussi
-                                    checkDayPeriod(today, Month)
-                                }
+                                checkMonthlyObjectives('JUIN', "${params.Jour}")
                             }
                         }
                     }
                     stage("Installer l'iso préconfiguré de CentOS 7") {
                         steps {
                             script {
-                                def today = "${params.Jour}"  // Récupère le jour du paramètre
-                                def Month = "${params.Mois}"
-
-                                // Appeler la fonction de vérification du jour
-                                if(Month == "JUIN"){
-                                    def checkDayPeriod = { dayToCheck, month ->
-                                        def dayInt = dayToCheck.toInteger()  // Convertir en entier
-                                        def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
-
-                                        if (dayInt >= 1 && dayInt <= 15) {
-                                            echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
-                                        } 
-                                        else if (dayInt >= 16 && dayInt <= 31) {
-                                            def remainingDays = daysInMonth[month.toUpperCase()] - dayInt  // Calculer les jours restants
-                                            echo "Il ne vous reste que ${remainingDays} jours pour accomplir vos objectifs. Courage 💪!"
-                                        }
-                                    }
-                                    // Appel de la fonction ici aussi
-                                    checkDayPeriod(today, Month)
-                                }
+                                checkMonthlyObjectives('JUIN', "${params.Jour}")
                             }
                         }
                      }
                      stage("Configurer CentOS 7 pour les switchs HP") {
                         steps {
                             script {
-                                def today = "${params.Jour}"  // Récupère le jour du paramètre
-                                def Month = "${params.Mois}"
-
-                                // Appeler la fonction de vérification du jour
-                                if(Month == "JUIN"){
-                                    def checkDayPeriod = { dayToCheck, month ->
-                                        def dayInt = dayToCheck.toInteger()  // Convertir en entier
-                                        def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
-
-                                        if (dayInt >= 1 && dayInt <= 15) {
-                                            echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
-                                        } 
-                                        else if (dayInt >= 16 && dayInt <= 31) {
-                                            def remainingDays = daysInMonth[month.toUpperCase()] - dayInt  // Calculer les jours restants
-                                            echo "Il ne vous reste que ${remainingDays} jours pour accomplir vos objectifs. Courage 💪!"
-                                        }
-                                    }
-                                    // Appel de la fonction ici aussi
-                                    checkDayPeriod(today, Month)
-                                }
+                                checkMonthlyObjectives('JUIN', "${params.Jour}")
                             }
                         }
                      }
                      stage("Faire du carte du réseau informatique") {
                         steps {
                             script {
-                                def today = "${params.Jour}"  // Récupère le jour du paramètre
-                                def Month = "${params.Mois}"
-
-                                // Appeler la fonction de vérification du jour
-                                if(Month == "JUIN"){
-                                    def checkDayPeriod = { dayToCheck, month ->
-                                        def dayInt = dayToCheck.toInteger()  // Convertir en entier
-                                        def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
-
-                                        if (dayInt >= 1 && dayInt <= 15) {
-                                            echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
-                                        } 
-                                        else if (dayInt >= 16 && dayInt <= 31) {
-                                            def remainingDays = daysInMonth[month.toUpperCase()] - dayInt  // Calculer les jours restants
-                                            echo "Il ne vous reste que ${remainingDays} jours pour accomplir vos objectifs. Courage 💪!"
-                                        }
-                                    }
-                                    // Appel de la fonction ici aussi
-                                    checkDayPeriod(today, Month)
-                                }
+                                checkMonthlyObjectives('JUIN', "${params.Jour}")
                             }
                         }
                      }
@@ -425,78 +292,21 @@ choice(name: 'Année de naissance', choices: [
                     stage("Rechercher une école pour un but MMI") {
                         steps {
                             script {
-                                def today = "${params.Jour}"  // Récupère le jour du paramètre
-                                def Month = "${params.Mois}"
-
-                                // Appeler la fonction de vérification du jour
-                                if(Month == "JUILLET"){
-                                    def checkDayPeriod = { dayToCheck, month ->
-                                        def dayInt = dayToCheck.toInteger()  // Convertir en entier
-                                        def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
-
-                                        if (dayInt >= 1 && dayInt <= 15) {
-                                            echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
-                                        } 
-                                        else if (dayInt >= 16 && dayInt <= 31) {
-                                            def remainingDays = daysInMonth[month.toUpperCase()] - dayInt  // Calculer les jours restants
-                                            echo "Il ne vous reste que ${remainingDays} jours pour accomplir vos objectifs. Courage 💪!"
-                                        }
-                                    }
-                                    // Appel de la fonction ici aussi
-                                    checkDayPeriod(today, Month)
-                                }
+                                checkMonthlyObjectives('JUILLET', "${params.Jour}")
                             }
                         }
                     }
                     stage("Arrêter sa formation actuelle avant les épreuves finales") {
                         steps {
                             script {
-                                def today = "${params.Jour}"  // Récupère le jour du paramètre
-                                def Month = "${params.Mois}"
-
-                                // Appeler la fonction de vérification du jour
-                                if(Month == "JUILLET"){
-                                    def checkDayPeriod = { dayToCheck, month ->
-                                        def dayInt = dayToCheck.toInteger()  // Convertir en entier
-                                        def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
-
-                                        if (dayInt >= 1 && dayInt <= 15) {
-                                            echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
-                                        } 
-                                        else if (dayInt >= 16 && dayInt <= 31) {
-                                            def remainingDays = daysInMonth[month.toUpperCase()] - dayInt  // Calculer les jours restants
-                                            echo "Il ne vous reste que ${remainingDays} jours pour accomplir vos objectifs. Courage 💪!"
-                                        }
-                                    }
-                                    // Appel de la fonction ici aussi
-                                    checkDayPeriod(today, Month)
-                                }
+                                checkMonthlyObjectives('JUILLET', "${params.Jour}")
                             }
                         }
                      }
                      stage("Rechercher une entreprise pour son alternance") {
                         steps {
                             script {
-                                def today = "${params.Jour}"  // Récupère le jour du paramètre
-                                def Month = "${params.Mois}"
-
-                                // Appeler la fonction de vérification du jour
-                                if(Month == "JUILLET"){
-                                    def checkDayPeriod = { dayToCheck, month ->
-                                        def dayInt = dayToCheck.toInteger()  // Convertir en entier
-                                        def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
-
-                                        if (dayInt >= 1 && dayInt <= 15) {
-                                            echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
-                                        } 
-                                        else if (dayInt >= 16 && dayInt <= 31) {
-                                            def remainingDays = daysInMonth[month.toUpperCase()] - dayInt  // Calculer les jours restants
-                                            echo "Il ne vous reste que ${remainingDays} jours pour accomplir vos objectifs. Courage 💪!"
-                                        }
-                                    }
-                                    // Appel de la fonction ici aussi
-                                    checkDayPeriod(today, Month)
-                                }
+                                checkMonthlyObjectives('JUILLET', "${params.Jour}")
                             }
                         }
                      }
@@ -509,104 +319,28 @@ choice(name: 'Année de naissance', choices: [
                     stage("Préparer sa valise") {
                         steps {
                             script {
-                                def today = "${params.Jour}"  // Récupère le jour du paramètre
-                                def Month = "${params.Mois}"
-
-                                // Appeler la fonction de vérification du jour
-                                if(Month == "AOUT"){
-                                    def checkDayPeriod = { dayToCheck, month ->
-                                        def dayInt = dayToCheck.toInteger()  // Convertir en entier
-                                        def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
-
-                                        if (dayInt >= 1 && dayInt <= 15) {
-                                            echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
-                                        } 
-                                        else if (dayInt >= 16 && dayInt <= 31) {
-                                            def remainingDays = daysInMonth[month.toUpperCase()] - dayInt  // Calculer les jours restants
-                                            echo "Il ne vous reste que ${remainingDays} jours pour accomplir vos objectifs. Courage 💪!"
-                                        }
-                                    }
-                                    // Appel de la fonction ici aussi
-                                    checkDayPeriod(today, Month)
-                                }
+                                checkMonthlyObjectives('AOUT', "${params.Jour}")
                             }
                         }
                     }
                     stage("Réserver le lieu d'hébergement à Grigny") {
                         steps {
                             script {
-                                def today = "${params.Jour}"  // Récupère le jour du paramètre
-                                def Month = "${params.Mois}"
-
-                                // Appeler la fonction de vérification du jour
-                                if(Month == "AOUT"){
-                                    def checkDayPeriod = { dayToCheck, month ->
-                                        def dayInt = dayToCheck.toInteger()  // Convertir en entier
-                                        def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
-
-                                        if (dayInt >= 1 && dayInt <= 15) {
-                                            echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
-                                        } 
-                                        else if (dayInt >= 16 && dayInt <= 31) {
-                                            def remainingDays = daysInMonth[month.toUpperCase()] - dayInt  // Calculer les jours restants
-                                            echo "Il ne vous reste que ${remainingDays} jours pour accomplir vos objectifs. Courage 💪!"
-                                        }
-                                    }
-                                    // Appel de la fonction ici aussi
-                                    checkDayPeriod(today, Month)
-                                }
+                                checkMonthlyObjectives('AOUT', "${params.Jour}")
                             }
                         }
                      }
                      stage("S'assurer d'avoir un portable et des chaussures de rechanges") {
                         steps {
                             script {
-                                def today = "${params.Jour}"  // Récupère le jour du paramètre
-                                def Month = "${params.Mois}"
-
-                                // Appeler la fonction de vérification du jour
-                                if(Month == "AOUT"){
-                                    def checkDayPeriod = { dayToCheck, month ->
-                                        def dayInt = dayToCheck.toInteger()  // Convertir en entier
-                                        def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
-
-                                        if (dayInt >= 1 && dayInt <= 15) {
-                                            echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
-                                        } 
-                                        else if (dayInt >= 16 && dayInt <= 31) {
-                                            def remainingDays = daysInMonth[month.toUpperCase()] - dayInt  // Calculer les jours restants
-                                            echo "Il ne vous reste que ${remainingDays} jours pour accomplir vos objectifs. Courage 💪!"
-                                        }
-                                    }
-                                    // Appel de la fonction ici aussi
-                                    checkDayPeriod(today, Month)
-                                }
+                                checkMonthlyObjectives('AOUT', "${params.Jour}")
                             }
                         }
                      }
                      stage("Planifier son trajet pour éviter les coins dit 'chaud'") {
                         steps {
                             script {
-                                def today = "${params.Jour}"  // Récupère le jour du paramètre
-                                def Month = "${params.Mois}"
-
-                                // Appeler la fonction de vérification du jour
-                                if(Month == "AOUT"){
-                                    def checkDayPeriod = { dayToCheck, month ->
-                                        def dayInt = dayToCheck.toInteger()  // Convertir en entier
-                                        def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
-
-                                        if (dayInt >= 1 && dayInt <= 15) {
-                                            echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
-                                        } 
-                                        else if (dayInt >= 16 && dayInt <= 31) {
-                                            def remainingDays = daysInMonth[month.toUpperCase()] - dayInt  // Calculer les jours restants
-                                            echo "Il ne vous reste que ${remainingDays} jours pour accomplir vos objectifs. Courage 💪!"
-                                        }
-                                    }
-                                    // Appel de la fonction ici aussi
-                                    checkDayPeriod(today, Month)
-                                }
+                                checkMonthlyObjectives('AOUT', "${params.Jour}")
                             }
                         }
                      }
