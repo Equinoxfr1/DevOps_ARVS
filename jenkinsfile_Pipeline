@@ -71,32 +71,37 @@ pipeline {
         }
 
         stage("Objectifs du Mois de Janvier - Reconstruire l'arrêt de bus dans ma maison") {
+            steps {
+                script {
+                    checkMonthlyObjectives('JANVIER', "${params.'Jour Actuel'}")
+                }
+            }
             parallel {
                 stage("Choisir une pièce de la maison à démolir") {
                     steps {
                         script {
-                            checkMonthlyObjectives('JANVIER', "${params.'Jour Actuel'}")
+                            echo "Objectif réalisé !"
                         }
                     }
                 }
                 stage("Identifier les lignes de bus à proximité") {
                     steps {
                         script {
-                            checkMonthlyObjectives('JANVIER', "${params.'Jour Actuel'}")
+                            echo "Objectif réalisé !"
                         }
                     }
                 }
                 stage("Promouvoir la construction auprès de ses camarades de classe") {
                     steps {
                         script {
-                            checkMonthlyObjectives('JANVIER', "${params.'Jour Actuel'}")
+                            echo "Objectif réalisé !"
                         }
                     }
                 }
                 stage("Arrêter de faire du covoiturage") {
                     steps {
                         script {
-                            checkMonthlyObjectives('JANVIER', "${params.'Jour Actuel'}")
+                            echo "Objectif réalisé !"
                         }
                     }
                 }
