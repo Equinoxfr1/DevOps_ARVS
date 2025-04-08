@@ -472,7 +472,6 @@ def checkMonthlyObjectives(String month, String day) {
 
     // Vérifier si le mois actuel correspond au mois passé en paramètre
     if (month.toUpperCase() == "${params.'Mois Actuel'}".toUpperCase()) {
-        echo "TEST"
         if (dayInt >= 1 && dayInt <= 15) {
             echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
             switch (month.toUpperCase()) {
