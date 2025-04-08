@@ -54,6 +54,9 @@ pipeline {
                     if ((today == birthDay) && (currentMonth == birthMonth)) {
                         echo "🎉 Joyeux Anniversaire ${params.Prénom} ${params.Nom} ! Tu as maintenant ${currentYear.toInteger() - birthYear.toInteger()} ans ! 🎂"
                     }
+
+                    echo "${today}"
+                    echo "${currentMonth}"
                 }
             }
         }
