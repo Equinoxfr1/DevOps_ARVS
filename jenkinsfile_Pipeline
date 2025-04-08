@@ -72,14 +72,10 @@ pipeline {
 
         stage("Objectifs du Mois de Janvier - Reconstruire l'arrêt de bus dans ma maison") {
             parallel {
-                steps {
-                    script {
-                        checkMonthlyObjectives('JANVIER', "${params.'Jour Actuel'}")
-                    }
-                }
                 stage("Choisir une pièce de la maison à démolir") {
                     steps {
                         script {
+                            checkMonthlyObjectives('JANVIER', "${params.'Jour Actuel'}")
                             echo "Objectif réalisé !"
                         }
                     }
@@ -105,7 +101,7 @@ pipeline {
                         }
                     }
                 }
-            
+            }
         }
 
         stage("Objectifs du Mois de Février - Obtenir le CCNA à 97%") {
