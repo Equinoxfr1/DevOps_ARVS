@@ -134,34 +134,35 @@ pipeline {
                     steps {
                         script {
                             checkMonthlyObjectives('FEVRIER', new Date().format('dd'))
+                            checkIssueStatus('13') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Oublier sa clé USB") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('FEVRIER', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('15') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Changer l'adresse MAC du routeur") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('FEVRIER', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('18') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Se garer sur le terre-plein") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('FEVRIER', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('21') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Aller chercher sa sœur à la maternelle tous les lundis") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('FEVRIER', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('60') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
@@ -174,27 +175,28 @@ pipeline {
                     steps {
                         script {
                             checkMonthlyObjectives('MARS', new Date().format('dd'))
+                            checkIssueStatus('22') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Remplacer les lattes du lit") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('MARS', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('24') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Consolider les embouts de lattes") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('MARS', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('28') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Mettre un matelas plus léger sur le lit") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('MARS', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('30') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
@@ -207,48 +209,49 @@ pipeline {
                     steps {
                         script {
                             checkMonthlyObjectives('AVRIL', new Date().format('dd'))
+                            checkIssueStatus('34') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Suivre les étapes du TP CCourbes") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('37') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Rédiger le compte-rendu sur un document Libre Office Writer") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('40') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Corriger les fautes d'orthographe avec Antidote") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('43') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Utiliser ChatGPT 2.0 pour s'aider dans la rédaction") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('45') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Travailler en groupe de 3 personnes") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('48') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Respecter la deadline de une semaine après la fin du module") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('50') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
@@ -261,20 +264,21 @@ pipeline {
                     steps {
                         script {
                             checkMonthlyObjectives('MAI', new Date().format('dd'))
+                            checkIssueStatus('49') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Obtenir son BTS avec 16+ de moyenne") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('MAI', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('52') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Réunir et envoyer les documents au centre de formation") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('MAI', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('61') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
@@ -287,27 +291,28 @@ pipeline {
                     steps {
                         script {
                             checkMonthlyObjectives('JUIN', new Date().format('dd'))
+                            checkIssueStatus('25') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Installer l'iso préconfiguré de CentOS 7") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('JUIN', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('33') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Configurer CentOS 7 pour les switchs HP") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('JUIN', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('36') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Faire du cartage du réseau informatique") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('JUIN', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('38') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
@@ -320,20 +325,21 @@ pipeline {
                     steps {
                         script {
                             checkMonthlyObjectives('JUILLET', new Date().format('dd'))
+                            checkIssueStatus('14') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Arrêter sa formation actuelle avant les épreuves finales") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('JUILLET', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('16') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Rechercher une entreprise pour son alternance") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('JUILLET', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('17') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
@@ -346,27 +352,28 @@ pipeline {
                     steps {
                         script {
                             checkMonthlyObjectives('AOUT', new Date().format('dd'))
+                            checkIssueStatus('39') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Réserver le lieu d'hébergement à Grigny") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('AOUT', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('41') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("S'assurer d'avoir un portable et des chaussures de rechange") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('AOUT', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('44') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Planifier son trajet pour éviter les coins dits 'chauds'") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('AOUT', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('47') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
@@ -379,20 +386,21 @@ pipeline {
                     steps {
                         script {
                             checkMonthlyObjectives('SEPTEMBRE', new Date().format('dd'))
+                            checkIssueStatus('55') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Établir un budget et un plan de conception") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('SEPTEMBRE', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('57') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Planifier les travaux et la mise en service") {
                     steps {
-                        script { _ ->
-                            //checkMonthlyObjectives('SEPTEMBRE', new Date().format('dd'))
+                        script {
+                            checkIssueStatus('58') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
