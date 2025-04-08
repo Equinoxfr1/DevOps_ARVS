@@ -470,83 +470,86 @@ def checkMonthlyObjectives(String month, String day) {
     def dayInt = day.toInteger()
     def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
 
-    if (dayInt >= 1 && dayInt <= 15 && month.toUpperCase() == "${params.'Mois Actuel'}".toUpperCase()) {
-        echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
-        switch (month.toUpperCase()) {
-            case 'JANVIER':
-                echo "- Choisir une pièce de la maison à démolir"
-                echo "- Identifier les lignes de bus à proximité"
-                echo "- Promouvoir la construction auprès de ses camarades de classe"
-                echo "- Arrêter de faire du covoiturage"
-                break
-            case 'FEVRIER':
-                echo "- Ajouter une adresse IP sur le switch"
-                echo "- Oublier sa clé USB"
-                echo "- Changer l'adresse MAC du routeur"
-                echo "- Se garer sur le terre-plein"
-                echo "- Aller chercher sa sœur à la maternelle tous les lundis"
-                break
-            case 'MARS':
-                echo "- Vérifier l'état du lit"
-                echo "- Remplacer les lattes du lit"
-                echo "- Consolider les embouts de lattes"
-                echo "- Mettre un matelas plus léger sur le lit"
-                break
-            case 'AVRIL':
-                echo "- Installer le framework Qt sur son poste"
-                echo "- Suivre les étapes du TP CCourbes"
-                echo "- Rédiger le compte-rendu sur un document Libre Office Writer"
-                echo "- Corriger les fautes d'orthographe avec Antidote"
-                echo "- Utiliser ChatGPT 2.0 pour s'aider dans la rédaction"
-                echo "- Travailler en groupe de 3 personnes"
-                echo "- Respecter la deadline de une semaine après la fin du module"
-                break
-            case 'MAI':
-                echo "- Assister à la présentation de l'ATS"
-                echo "- Obtenir son BTS avec 16+ de moyenne"
-                echo "- Réunir et envoyer les documents au centre de formation"
-                break
-            case 'JUIN':
-                echo "- Installer ESXi VMWare sur un disque virtuel RAID 5"
-                echo "- Installer l'iso préconfiguré de CentOS 7"
-                echo "- Configurer CentOS 7 pour les switchs HP"
-                echo "- Faire du cartage du réseau informatique"
-                break
-            case 'JUILLET':
-                echo "- Rechercher une école pour un but MMI"
-                echo "- Arrêter sa formation actuelle avant les épreuves finales"
-                echo "- Rechercher une entreprise pour son alternance"
-                break
-            case 'AOUT':
-                echo "- Préparer sa valise"
-                echo "- Réserver le lieu d'hébergement à Grigny"
-                echo "- S'assurer d'avoir un portable et des chaussures de rechange"
-                echo "- Planifier son trajet pour éviter les coins dit 'chaud'"
-                break
-            case 'SEPTEMBRE':
-                echo "- Définir les besoins et contraintes du projet"
-                echo "- Établir un budget et un plan de conception"
-                echo "- Planifier les travaux et la mise en service"
-                echo "- Mettre 0000 en code de l'écran"
-                break
-            case 'OCTOBRE':
-                echo "- Analyser les conditions météorologiques et la route optimale"
-                echo "- Optimiser les réglages du bateau et la gestion du temps"
-                echo "- Surveiller et ajuster la stratégie en temps réel"
-                break
-            case 'NOVEMBRE':
-                echo "- Demander aux étudiants de venir"
-                echo "- Préparer l'amphithéâtre pour la remise des diplômes"
-                echo "- Oublier les diplômes en format papier"
-                break
-            case 'DECEMBRE':
-                echo "- Planifier des révisions"
-                echo "- S'inscrire à une session de TOEIC"
-                echo "- Faire des tests blancs"
-                break
+    // Vérifier si le mois actuel correspond au mois passé en paramètre
+    if (month.toUpperCase() == "${params.'Mois Actuel'}".toUpperCase()) {
+        if (dayInt >= 1 && dayInt <= 15) {
+            echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
+            switch (month.toUpperCase()) {
+                case 'JANVIER':
+                    echo "- Choisir une pièce de la maison à démolir"
+                    echo "- Identifier les lignes de bus à proximité"
+                    echo "- Promouvoir la construction auprès de ses camarades de classe"
+                    echo "- Arrêter de faire du covoiturage"
+                    break
+                case 'FEVRIER':
+                    echo "- Ajouter une adresse IP sur le switch"
+                    echo "- Oublier sa clé USB"
+                    echo "- Changer l'adresse MAC du routeur"
+                    echo "- Se garer sur le terre-plein"
+                    echo "- Aller chercher sa sœur à la maternelle tous les lundis"
+                    break
+                case 'MARS':
+                    echo "- Vérifier l'état du lit"
+                    echo "- Remplacer les lattes du lit"
+                    echo "- Consolider les embouts de lattes"
+                    echo "- Mettre un matelas plus léger sur le lit"
+                    break
+                case 'AVRIL':
+                    echo "- Installer le framework Qt sur son poste"
+                    echo "- Suivre les étapes du TP CCourbes"
+                    echo "- Rédiger le compte-rendu sur un document Libre Office Writer"
+                    echo "- Corriger les fautes d'orthographe avec Antidote"
+                    echo "- Utiliser ChatGPT 2.0 pour s'aider dans la rédaction"
+                    echo "- Travailler en groupe de 3 personnes"
+                    echo "- Respecter la deadline de une semaine après la fin du module"
+                    break
+                case 'MAI':
+                    echo "- Assister à la présentation de l'ATS"
+                    echo "- Obtenir son BTS avec 16+ de moyenne"
+                    echo "- Réunir et envoyer les documents au centre de formation"
+                    break
+                case 'JUIN':
+                    echo "- Installer ESXi VMWare sur un disque virtuel RAID 5"
+                    echo "- Installer l'iso préconfiguré de CentOS 7"
+                    echo "- Configurer CentOS 7 pour les switchs HP"
+                    echo "- Faire du cartage du réseau informatique"
+                    break
+                case 'JUILLET':
+                    echo "- Rechercher une école pour un but MMI"
+                    echo "- Arrêter sa formation actuelle avant les épreuves finales"
+                    echo "- Rechercher une entreprise pour son alternance"
+                    break
+                case 'AOUT':
+                    echo "- Préparer sa valise"
+                    echo "- Réserver le lieu d'hébergement à Grigny"
+                    echo "- S'assurer d'avoir un portable et des chaussures de rechange"
+                    echo "- Planifier son trajet pour éviter les coins dit 'chaud'"
+                    break
+                case 'SEPTEMBRE':
+                    echo "- Définir les besoins et contraintes du projet"
+                    echo "- Établir un budget et un plan de conception"
+                    echo "- Planifier les travaux et la mise en service"
+                    echo "- Mettre 0000 en code de l'écran"
+                    break
+                case 'OCTOBRE':
+                    echo "- Analyser les conditions météorologiques et la route optimale"
+                    echo "- Optimiser les réglages du bateau et la gestion du temps"
+                    echo "- Surveiller et ajuster la stratégie en temps réel"
+                    break
+                case 'NOVEMBRE':
+                    echo "- Demander aux étudiants de venir"
+                    echo "- Préparer l'amphithéâtre pour la remise des diplômes"
+                    echo "- Oublier les diplômes en format papier"
+                    break
+                case 'DECEMBRE':
+                    echo "- Planifier des révisions"
+                    echo "- S'inscrire à une session de TOEIC"
+                    echo "- Faire des tests blancs"
+                    break
+            }
+        } else if (dayInt >= 16 && dayInt <= 31) {
+            def remainingDays = daysInMonth[month.toUpperCase()] - dayInt
+            echo "Il ne vous reste que ${remainingDays} jours pour accomplir vos objectifs. Courage 💪!"
         }
-    } else if (dayInt >= 16 && dayInt <= 31) {
-        def remainingDays = daysInMonth[month.toUpperCase()] - dayInt
-        echo "Il ne vous reste que ${remainingDays} jours pour accomplir vos objectifs. Courage 💪!"
     }
 }
