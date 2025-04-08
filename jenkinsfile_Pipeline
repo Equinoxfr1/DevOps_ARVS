@@ -51,7 +51,7 @@ choice(name: 'Année de naissance', choices: [
                 steps {
                     script {
                         def today = "${params.'Jour Actuel'}"
-                        def Month = "${Mois Actuel}"
+                        def Month = "${'Mois Actuel'}"
                         def birthDay = "${params.'Jour de naissance'}"  // Jour de naissance
                         def birthMonth = "${params.'Mois de naissance'}"  // Mois de naissance
                         def birthYear = "${params.'Année de naissance'}"  // Année de naissance
