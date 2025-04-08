@@ -100,27 +100,28 @@ pipeline {
                     steps {
                         script {
                             checkMonthlyObjectives('JANVIER', new Date().format('dd'))
+                            checkIssueStatus('53') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Identifier les lignes de bus à proximité") {
                     steps {
-                        script { _ ->
-                            //echo "Objectif réalisé !"
+                        script {
+                            checkIssueStatus('54') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Promouvoir la construction auprès de ses camarades de classe") {
                     steps {
-                        script { _ ->
-                            //echo "Objectif réalisé !"
+                        script {
+                           checkIssueStatus('56') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
                 stage("Arrêter de faire du covoiturage") {
                     steps {
-                        script { _ ->
-                            //echo "Objectif réalisé !"
+                        script {
+                            checkIssueStatus('59') // Remplacez par le numéro de l'issue
                         }
                     }
                 }
@@ -574,5 +575,20 @@ def checkMonthlyObjectives(String month, String day) {
             def remainingDays = daysInMonth[month.toUpperCase()] - dayInt
             echo "Il ne vous reste que ${remainingDays} jours pour accomplir vos objectifs. Courage 💪!"
         }
+    }
+}
+
+def checkIssueStatus(String issueNumber) {
+    def response = httpRequest(
+        url: "https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues/${issueNumber}",
+        httpMode: 'GET',
+        validResponseCodes: '200'
+    )
+
+    def issue = new groovy.json.JsonSlurper().parseText(response.content)
+    if (issue.state == 'closed') {
+        echo "L'issue ${issueNumber} est fermée."
+    } else {
+        echo "L'issue ${issueNumber} est toujours ouverte."
     }
 }
