@@ -528,7 +528,7 @@ def checkMonthlyObjectives(String month, String day) {
                     echo "- Préparer sa valise"
                     echo "- Réserver le lieu d'hébergement à Grigny"
                     echo "- S'assurer d'avoir un portable et des chaussures de rechange"
-                    echo "- Planifier son trajet pour éviter les coins dit 'chaud'"
+                    echo "- Planifier son trajet pour éviter les coins dits 'chauds'"
                     break
                 case 'SEPTEMBRE':
                     echo "- Définir les besoins et contraintes du projet"
