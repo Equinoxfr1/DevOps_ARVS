@@ -470,11 +470,9 @@ def checkMonthlyObjectives(String month, String day) {
     def dayInt = day.toInteger()
     def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
 
-    echo "Mois actuel : ${params.'Mois Actuel'}" // Ajoutez cette ligne
-    echo "Jour actuel : ${params.'Jour Actuel'}" // Ajoutez cette ligne
-
     // Vérifier si le mois actuel correspond au mois passé en paramètre
     if (month.toUpperCase() == "${params.'Mois Actuel'}".toUpperCase()) {
+        echo "TEST"
         if (dayInt >= 1 && dayInt <= 15) {
             echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
             switch (month.toUpperCase()) {
