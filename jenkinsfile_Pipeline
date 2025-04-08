@@ -44,7 +44,6 @@ pipeline {
     }
 
     stages {
-stages {
         stage('Vérification des Issues GitHub') {
             steps {
                 script {
