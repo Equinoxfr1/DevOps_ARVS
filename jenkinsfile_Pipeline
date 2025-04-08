@@ -593,14 +593,18 @@ def checkIssueStatus(String issueNumber) {
     def response = httpRequest(
         url: "https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues/${issueNumber}",
         httpMode: 'GET',
-        validResponseCodes: '200'
+        validResponseCodes: '200,403', // Accepter les codes 200 et 403
+        customHeaders: [[name: 'Authorization', value: "token YOUR_PERSONAL_ACCESS_TOKEN"]]
     )
 
-    def issue = new groovy.json.JsonSlurper().parseText(response.content)
-    if (issue.state == 'closed') {
-        echo "L'issue ${issueNumber} est fermée."
-    } else {
-        echo "L'issue ${issueNumber} est toujours ouverte."
+    if (response.status == 200) {
+        def issue = new groovy.json.JsonSlurper().parseText(response.content)
+        if (issue.state == 'closed') {
+            echo "L'issue ${issueNumber} est fermée."
+        } else {
+            echo "L'issue ${issueNumber} est toujours ouverte."
+        }
+    } else if (response.status == 403) {
+        echo "Donnée indisponible pour l'issue ${issueNumber}. Veuillez vérifier les permissions ou réessayer plus tard."
     }
-    sleep(1000)
 }
