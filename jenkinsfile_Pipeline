@@ -1269,8 +1269,6 @@ choice(name: 'Année de naissance', choices: [
                 }
             }
 
-
-
             stage("Objectifs du Mois Décembre - Passer le TOEIC") {
                 parallel {
                     stage("Planifier des révision") {
@@ -1292,9 +1290,8 @@ choice(name: 'Année de naissance', choices: [
                         }
                      }
                 }
-            }
-        }
     }
+}
 
 def checkMonthlyObjectives(String month, String day) {
     def dayInt = day.toInteger()
