@@ -44,6 +44,7 @@ pipeline {
     }
 
     stages {
+stages {
         stage('Vérification des Issues GitHub') {
             steps {
                 script {
@@ -53,7 +54,8 @@ pipeline {
                     issueNumbers.each { issueNumber ->
                         def response = httpRequest(
                             url: "https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues/${issueNumber}",
-                            httpMode: 'GET'
+                            httpMode: 'GET',
+                            validResponseCodes: '200'
                         )
 
                         def issue = new groovy.json.JsonSlurper().parseText(response.content)
@@ -70,6 +72,7 @@ pipeline {
                 }
             }
         }
+    }
         stage('Vérification Anniversaire') {
             steps {
                 script {
