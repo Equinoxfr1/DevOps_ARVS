@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+        REPO_OWNER = 'Equinoxfr1'
+        REPO_NAME = 'DevOps_ARVS'
+    }
+
     parameters {
         string(name: 'Nom', defaultValue: '', description: 'Entrez votre nom')
         string(name: 'Prénom', defaultValue: '', description: 'Entrez votre prénom')
@@ -39,6 +44,32 @@ pipeline {
     }
 
     stages {
+        stage('Vérification des Issues GitHub') {
+            steps {
+                script {
+                    def issueNumbers = [1, 2, 3] // Remplacez par les numéros de vos issues
+                    def completedObjectives = []
+
+                    issueNumbers.each { issueNumber ->
+                        def response = httpRequest(
+                            url: "https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues/${issueNumber}",
+                            httpMode: 'GET'
+                        )
+
+                        def issue = new groovy.json.JsonSlurper().parseText(response.content)
+                        if (issue.state == 'closed') {
+                            completedObjectives.add(issueNumber)
+                        }
+                    }
+
+                    if (completedObjectives) {
+                        echo "Les objectifs suivants sont complétés : ${completedObjectives.join(', ')}"
+                    } else {
+                        echo "Aucun objectif n'est encore complété."
+                    }
+                }
+            }
+        }
         stage('Vérification Anniversaire') {
             steps {
                 script {
