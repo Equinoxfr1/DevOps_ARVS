@@ -593,8 +593,7 @@ def checkIssueStatus(String issueNumber) {
     def response = httpRequest(
         url: "https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues/${issueNumber}",
         httpMode: 'GET',
-        validResponseCodes: '200,403', // Accepter les codes 200 et 403
-        customHeaders: [[name: 'Authorization', value: "token YOUR_PERSONAL_ACCESS_TOKEN"]]
+        validResponseCodes: '200'
     )
 
     if (response.status == 200) {
