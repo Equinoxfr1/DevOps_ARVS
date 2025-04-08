@@ -105,21 +105,21 @@ pipeline {
                 }
                 stage("Identifier les lignes de bus à proximité") {
                     steps {
-                        script {
+                        script { _ ->
                             //echo "Objectif réalisé !"
                         }
                     }
                 }
                 stage("Promouvoir la construction auprès de ses camarades de classe") {
                     steps {
-                        script {
+                        script { _ ->
                             //echo "Objectif réalisé !"
                         }
                     }
                 }
                 stage("Arrêter de faire du covoiturage") {
                     steps {
-                        script {
+                        script { _ ->
                             //echo "Objectif réalisé !"
                         }
                     }
@@ -138,28 +138,28 @@ pipeline {
                 }
                 stage("Oublier sa clé USB") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('FEVRIER', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Changer l'adresse MAC du routeur") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('FEVRIER', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Se garer sur le terre-plein") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('FEVRIER', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Aller chercher sa sœur à la maternelle tous les lundis") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('FEVRIER', new Date().format('dd'))
                         }
                     }
@@ -178,21 +178,21 @@ pipeline {
                 }
                 stage("Remplacer les lattes du lit") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('MARS', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Consolider les embouts de lattes") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('MARS', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Mettre un matelas plus léger sur le lit") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('MARS', new Date().format('dd'))
                         }
                     }
@@ -211,42 +211,42 @@ pipeline {
                 }
                 stage("Suivre les étapes du TP CCourbes") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Rédiger le compte-rendu sur un document Libre Office Writer") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Corriger les fautes d'orthographe avec Antidote") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Utiliser ChatGPT 2.0 pour s'aider dans la rédaction") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Travailler en groupe de 3 personnes") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Respecter la deadline de une semaine après la fin du module") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
                         }
                     }
@@ -265,14 +265,14 @@ pipeline {
                 }
                 stage("Obtenir son BTS avec 16+ de moyenne") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('MAI', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Réunir et envoyer les documents au centre de formation") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('MAI', new Date().format('dd'))
                         }
                     }
@@ -291,21 +291,21 @@ pipeline {
                 }
                 stage("Installer l'iso préconfiguré de CentOS 7") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('JUIN', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Configurer CentOS 7 pour les switchs HP") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('JUIN', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Faire du cartage du réseau informatique") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('JUIN', new Date().format('dd'))
                         }
                     }
@@ -324,14 +324,14 @@ pipeline {
                 }
                 stage("Arrêter sa formation actuelle avant les épreuves finales") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('JUILLET', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Rechercher une entreprise pour son alternance") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('JUILLET', new Date().format('dd'))
                         }
                     }
@@ -350,21 +350,21 @@ pipeline {
                 }
                 stage("Réserver le lieu d'hébergement à Grigny") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('AOUT', new Date().format('dd'))
                         }
                     }
                 }
                 stage("S'assurer d'avoir un portable et des chaussures de rechange") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('AOUT', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Planifier son trajet pour éviter les coins dits 'chauds'") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('AOUT', new Date().format('dd'))
                         }
                     }
@@ -383,21 +383,21 @@ pipeline {
                 }
                 stage("Établir un budget et un plan de conception") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('SEPTEMBRE', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Planifier les travaux et la mise en service") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('SEPTEMBRE', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Mettre 0000 en code de l'écran") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('SEPTEMBRE', new Date().format('dd'))
                         }
                     }
@@ -416,14 +416,14 @@ pipeline {
                 }
                 stage("Optimiser les réglages du bateau et la gestion du temps") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('OCTOBRE', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Surveiller et ajuster la stratégie en temps réel") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('OCTOBRE', new Date().format('dd'))
                         }
                     }
@@ -442,14 +442,14 @@ pipeline {
                 }
                 stage("Préparer amphithéâtre pour la remise des diplômes") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('NOVEMBRE', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Oublier les diplômes en format papier") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('NOVEMBRE', new Date().format('dd'))
                         }
                     }
@@ -468,14 +468,14 @@ pipeline {
                 }
                 stage("S'inscrire à une session de TOEIC") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('DECEMBRE', new Date().format('dd'))
                         }
                     }
                 }
                 stage("Faire des tests blancs") {
                     steps {
-                        script {
+                        script { _ ->
                             //checkMonthlyObjectives('DECEMBRE', new Date().format('dd'))
                         }
                     }
