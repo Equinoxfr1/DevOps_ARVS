@@ -602,4 +602,5 @@ def checkIssueStatus(String issueNumber) {
     } else {
         echo "L'issue ${issueNumber} est toujours ouverte."
     }
+    sleep(1000)
 }
