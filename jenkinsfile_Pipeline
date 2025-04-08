@@ -51,7 +51,14 @@ pipeline {
                     def completedObjectives = []
 
                     issueNumbers.each { issueNumber ->
-                        if (isIssueResolved(issueNumber)) {
+                        def response = httpRequest(
+                            url: "https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues/${issueNumber}",
+                            httpMode: 'GET',
+                            validResponseCodes: '200'
+                        )
+
+                        def issue = new groovy.json.JsonSlurper().parseText(response.content)
+                        if (issue.state == 'closed') {
                             completedObjectives.add(issueNumber)
                         }
                     }
@@ -87,18 +94,485 @@ pipeline {
             }
         }
 
-        // Ajoutez d'autres étapes ici...
+        stage("Objectifs du Mois de Janvier - Reconstruire l'arrêt de bus dans ma maison") {
+            parallel {
+                stage("Choisir une pièce de la maison à démolir") {
+                    steps {
+                        script {
+                            checkMonthlyObjectives('JANVIER', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Identifier les lignes de bus à proximité") {
+                    steps {
+                        script {
+                            //echo "Objectif réalisé !"
+                        }
+                    }
+                }
+                stage("Promouvoir la construction auprès de ses camarades de classe") {
+                    steps {
+                        script {
+                            //echo "Objectif réalisé !"
+                        }
+                    }
+                }
+                stage("Arrêter de faire du covoiturage") {
+                    steps {
+                        script {
+                            //echo "Objectif réalisé !"
+                        }
+                    }
+                }
+            }
+        }
+
+        stage("Objectifs du Mois de Février - Obtenir le CCNA à 97%") {
+            parallel {
+                stage("Ajouter une adresse IP sur le switch") {
+                    steps {
+                        script {
+                            checkMonthlyObjectives('FEVRIER', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Oublier sa clé USB") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('FEVRIER', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Changer l'adresse MAC du routeur") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('FEVRIER', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Se garer sur le terre-plein") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('FEVRIER', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Aller chercher sa sœur à la maternelle tous les lundis") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('FEVRIER', new Date().format('dd'))
+                        }
+                    }
+                }
+            }
+        }
+
+        stage("Objectifs du Mois de Mars - Reconstruire le lit de Martin") {
+            parallel {
+                stage("Vérifier l'état du lit") {
+                    steps {
+                        script {
+                            checkMonthlyObjectives('MARS', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Remplacer les lattes du lit") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('MARS', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Consolider les embouts de lattes") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('MARS', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Mettre un matelas plus léger sur le lit") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('MARS', new Date().format('dd'))
+                        }
+                    }
+                }
+            }
+        }
+
+        stage("Objectifs du Mois d'Avril - Rendre le compte-rendu du TP CCourbe") {
+            parallel {
+                stage("Installer le framework Qt sur son poste") {
+                    steps {
+                        script {
+                            checkMonthlyObjectives('AVRIL', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Suivre les étapes du TP CCourbes") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Rédiger le compte-rendu sur un document Libre Office Writer") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Corriger les fautes d'orthographe avec Antidote") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Utiliser ChatGPT 2.0 pour s'aider dans la rédaction") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Travailler en groupe de 3 personnes") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Respecter la deadline de une semaine après la fin du module") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('AVRIL', new Date().format('dd'))
+                        }
+                    }
+                }
+            }
+        }
+
+        stage("Objectifs du Mois de Mai - Préparer sa rentrée en ATS") {
+            parallel {
+                stage("Assister à la présentation de l'ATS") {
+                    steps {
+                        script {
+                            checkMonthlyObjectives('MAI', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Obtenir son BTS avec 16+ de moyenne") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('MAI', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Réunir et envoyer les documents au centre de formation") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('MAI', new Date().format('dd'))
+                        }
+                    }
+                }
+            }
+        }
+
+        stage("Objectifs du Mois de Juin - Installer un serveur de supervision Centreon") {
+            parallel {
+                stage("Installer ESXi VMWare sur un disque virtuel RAID 5") {
+                    steps {
+                        script {
+                            checkMonthlyObjectives('JUIN', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Installer l'iso préconfiguré de CentOS 7") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('JUIN', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Configurer CentOS 7 pour les switchs HP") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('JUIN', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Faire du cartage du réseau informatique") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('JUIN', new Date().format('dd'))
+                        }
+                    }
+                }
+            }
+        }
+
+        stage("Objectifs du Mois de Juillet - Se reconvertir dans les métiers du livre") {
+            parallel {
+                stage("Rechercher une école pour un but MMI") {
+                    steps {
+                        script {
+                            checkMonthlyObjectives('JUILLET', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Arrêter sa formation actuelle avant les épreuves finales") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('JUILLET', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Rechercher une entreprise pour son alternance") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('JUILLET', new Date().format('dd'))
+                        }
+                    }
+                }
+            }
+        }
+
+        stage("Objectifs du Mois de Août - Préparer ses vacances à Gnigny") {
+            parallel {
+                stage("Préparer sa valise") {
+                    steps {
+                        script {
+                            checkMonthlyObjectives('AOUT', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Réserver le lieu d'hébergement à Grigny") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('AOUT', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("S'assurer d'avoir un portable et des chaussures de rechange") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('AOUT', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Planifier son trajet pour éviter les coins dits 'chauds'") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('AOUT', new Date().format('dd'))
+                        }
+                    }
+                }
+            }
+        }
+
+        stage("Objectifs du Mois de Septembre - Planifier la construction d'une salle d'étude climatisée") {
+            parallel {
+                stage("Définir les besoins et contraintes du projet") {
+                    steps {
+                        script {
+                            checkMonthlyObjectives('SEPTEMBRE', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Établir un budget et un plan de conception") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('SEPTEMBRE', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Planifier les travaux et la mise en service") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('SEPTEMBRE', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Mettre 0000 en code de l'écran") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('SEPTEMBRE', new Date().format('dd'))
+                        }
+                    }
+                }
+            }
+        }
+
+        stage("Objectifs du Mois d'Octobre - Gagner la course Virtual Regetta") {
+            parallel {
+                stage("Analyser les conditions météorologiques et la route optimale") {
+                    steps {
+                        script {
+                            checkMonthlyObjectives('OCTOBRE', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Optimiser les réglages du bateau et la gestion du temps") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('OCTOBRE', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Surveiller et ajuster la stratégie en temps réel") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('OCTOBRE', new Date().format('dd'))
+                        }
+                    }
+                }
+            }
+        }
+
+        stage("Objectifs du Mois Novembre - Organiser la remise des diplômes du CNAM") {
+            parallel {
+                stage("Demander aux étudiants de venir") {
+                    steps {
+                        script {
+                            checkMonthlyObjectives('NOVEMBRE', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Préparer amphithéâtre pour la remise des diplômes") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('NOVEMBRE', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Oublier les diplômes en format papier") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('NOVEMBRE', new Date().format('dd'))
+                        }
+                    }
+                }
+            }
+        }
+
+        stage("Objectifs du Mois Décembre - Passer le TOEIC") {
+            parallel {
+                stage("Planifier des révisions") {
+                    steps {
+                        script {
+                            checkMonthlyObjectives('DECEMBRE', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("S'inscrire à une session de TOEIC") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('DECEMBRE', new Date().format('dd'))
+                        }
+                    }
+                }
+                stage("Faire des tests blancs") {
+                    steps {
+                        script {
+                            //checkMonthlyObjectives('DECEMBRE', new Date().format('dd'))
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
-// Fonction pour vérifier si une issue est résolue
-def isIssueResolved(issueNumber) {
-    def response = httpRequest(
-        url: "https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues/${issueNumber}",
-        httpMode: 'GET',
-        validResponseCodes: '200'
-    )
+def checkMonthlyObjectives(String month, String day) {
+    if (day == null || day.isEmpty()) {
+        echo "Le jour est invalide."
+        return
+    }
 
-    def issue = new groovy.json.JsonSlurper().parseText(response.content)
-    return issue.state == 'closed'
+    def dayInt = day.toInteger()
+    def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
+
+    // Vérifier si le mois actuel correspond au mois passé en paramètre
+    if (month.toUpperCase() == new Date().format('MMMM').toUpperCase()) {
+        echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
+        switch (month.toUpperCase()) {
+            case 'JANVIER':
+                echo "- Choisir une pièce de la maison à démolir"
+                echo "- Identifier les lignes de bus à proximité"
+                echo "- Promouvoir la construction auprès de ses camarades de classe"
+                echo "- Arrêter de faire du covoiturage"
+                break
+            case 'FEVRIER':
+                echo "- Ajouter une adresse IP sur le switch"
+                echo "- Oublier sa clé USB"
+                echo "- Changer l'adresse MAC du routeur"
+                echo "- Se garer sur le terre-plein"
+                echo "- Aller chercher sa sœur à la maternelle tous les lundis"
+                break
+            case 'MARS':
+                echo "- Vérifier l'état du lit"
+                echo "- Remplacer les lattes du lit"
+                echo "- Consolider les embouts de lattes"
+                echo "- Mettre un matelas plus léger sur le lit"
+                break
+            case 'AVRIL':
+                echo "- Installer le framework Qt sur son poste"
+                echo "- Suivre les étapes du TP CCourbes"
+                echo "- Rédiger le compte-rendu sur un document Libre Office Writer"
+                echo "- Corriger les fautes d'orthographe avec Antidote"
+                echo "- Utiliser ChatGPT 2.0 pour s'aider dans la rédaction"
+                echo "- Travailler en groupe de 3 personnes"
+                echo "- Respecter la deadline de une semaine après la fin du module"
+                break
+            case 'MAI':
+                echo "- Assister à la présentation de l'ATS"
+                echo "- Obtenir son BTS avec 16+ de moyenne"
+                echo "- Réunir et envoyer les documents au centre de formation"
+                break
+            case 'JUIN':
+                echo "- Installer ESXi VMWare sur un disque virtuel RAID 5"
+                echo "- Installer l'iso préconfiguré de CentOS 7"
+                echo "- Configurer CentOS 7 pour les switchs HP"
+                echo "- Faire du cartage du réseau informatique"
+                break
+            case 'JUILLET':
+                echo "- Rechercher une école pour un but MMI"
+                echo "- Arrêter sa formation actuelle avant les épreuves finales"
+                echo "- Rechercher une entreprise pour son alternance"
+                break
+            case 'AOUT':
+                echo "- Préparer sa valise"
+                echo "- Réserver le lieu d'hébergement à Grigny"
+                echo "- S'assurer d'avoir un portable et des chaussures de rechange"
+                echo "- Planifier son trajet pour éviter les coins dits 'chauds'"
+                break
+            case 'SEPTEMBRE':
+                echo "- Définir les besoins et contraintes du projet"
+                echo "- Établir un budget et un plan de conception"
+                echo "- Planifier les travaux et la mise en service"
+                echo "- Mettre 0000 en code de l'écran"
+                break
+            case 'OCTOBRE':
+                echo "- Analyser les conditions météorologiques et la route optimale"
+                echo "- Optimiser les réglages du bateau et la gestion du temps"
+                echo "- Surveiller et ajuster la stratégie en temps réel"
+                break
+            case 'NOVEMBRE':
+                echo "- Demander aux étudiants de venir"
+                echo "- Préparer l'amphithéâtre pour la remise des diplômes"
+                echo "- Oublier les diplômes en format papier"
+                break
+            case 'DECEMBRE':
+                echo "- Planifier des révisions"
+                echo "- S'inscrire à une session de TOEIC"
+                echo "- Faire des tests blancs"
+                break
+        }
+        if (dayInt >= 16 && dayInt <= 31) {
+            def remainingDays = daysInMonth[month.toUpperCase()] - dayInt
+            echo "Il ne vous reste que ${remainingDays} jours pour accomplir vos objectifs. Courage 💪!"
+        }
+    }
 }
