@@ -470,7 +470,7 @@ def checkMonthlyObjectives(String month, String day) {
     def dayInt = day.toInteger()
     def daysInMonth = [JANVIER: 31, FEVRIER: 28, MARS: 31, AVRIL: 30, MAI: 31, JUIN: 30, JUILLET: 31, AOUT: 31, SEPTEMBRE: 30, OCTOBRE: 31, NOVEMBRE: 30, DECEMBRE: 31]
 
-    if (dayInt >= 1 && dayInt <= 15) {
+    if (dayInt >= 1 && dayInt <= 15 && month.toUpperCase() == "${params.'Mois Actuel'}".toUpperCase()) {
         echo "Vous avez des nouveaux objectifs pour ce mois-ci ! Voici la liste : "
         switch (month.toUpperCase()) {
             case 'JANVIER':
@@ -510,7 +510,7 @@ def checkMonthlyObjectives(String month, String day) {
                 echo "- Installer ESXi VMWare sur un disque virtuel RAID 5"
                 echo "- Installer l'iso préconfiguré de CentOS 7"
                 echo "- Configurer CentOS 7 pour les switchs HP"
-                echo "- Faire du carte du réseau informatique"
+                echo "- Faire du cartage du réseau informatique"
                 break
             case 'JUILLET':
                 echo "- Rechercher une école pour un but MMI"
@@ -536,7 +536,7 @@ def checkMonthlyObjectives(String month, String day) {
                 break
             case 'NOVEMBRE':
                 echo "- Demander aux étudiants de venir"
-                echo "- Préparer amphithéâtre pour la remise des diplômes"
+                echo "- Préparer l'amphithéâtre pour la remise des diplômes"
                 echo "- Oublier les diplômes en format papier"
                 break
             case 'DECEMBRE':
